@@ -66,5 +66,6 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
     },
-    "dotnet.defaultSolution": "TLS202502_BombRush.sln"
+    "dotnet.defaultSolution": "TLS202502_BombRush.sln",
+    "FSharp.suggestGitignore": false
 }
