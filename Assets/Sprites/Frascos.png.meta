@@ -1,25 +1,40 @@
 fileFormatVersion: 2
-guid: c6521e4b15f52bf468658ad730c754ac
+guid: 0de4c04f74e913c4fb5574c8cf1a83a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3469178385484208995
-    second: Bateria_0
+      213: -4662585570535470772
+    second: Frascos_0
   - first:
-      213: -4903254553845163760
-    second: Bateria_1
+      213: -8060854983358967397
+    second: Frascos_1
   - first:
-      213: -2307794284884632615
-    second: Bateria_2
+      213: -1669150855575640509
+    second: Frascos_2
   - first:
-      213: -7017983711608374906
-    second: Bateria_3
+      213: -105525840838531708
+    second: Frascos_3
   - first:
-      213: 1573245032970343668
-    second: Bateria_4
+      213: 4495818175338740494
+    second: Frascos_4
   - first:
-      213: -4188751573287301759
-    second: Bateria_5
+      213: 3007120443270466283
+    second: Frascos_5
+  - first:
+      213: 7723984972365811931
+    second: Frascos_6
+  - first:
+      213: 5989402474972088816
+    second: Frascos_7
+  - first:
+      213: -5541360156559182725
+    second: Frascos_8
+  - first:
+      213: 2032705221961080346
+    second: Frascos_9
+  - first:
+      213: -1609405964448924615
+    second: Frascos_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +130,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bateria_0
+      name: Frascos_0
       rect:
         serializedVersion: 2
         x: 1
-        y: 17
-        width: 15
-        height: 14
+        y: 73
+        width: 17
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,64 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 36bdf317c5ff42030800000000000000
-      internalID: 3469178385484208995
+      spriteID: c490f55802b2b4fb0800000000000000
+      internalID: -4662585570535470772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bateria_1
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 0
-        width: 6
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0191eba36f324fbb0800000000000000
-      internalID: -4903254553845163760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bateria_2
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 0
-        width: 6
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9db56ca335119ffd0800000000000000
-      internalID: -2307794284884632615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bateria_3
+      name: Frascos_1
       rect:
         serializedVersion: 2
         x: 17
-        y: 0
-        width: 6
-        height: 15
+        y: 75
+        width: 25
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 689fa164ffc1b9e90800000000000000
-      internalID: -7017983711608374906
+      spriteID: b9193f2d917122090800000000000000
+      internalID: -8060854983358967397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bateria_4
+      name: Frascos_2
       rect:
         serializedVersion: 2
-        x: 20
-        y: 16
-        width: 7
-        height: 15
+        x: 42
+        y: 76
+        width: 19
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f458d6a50a45d510800000000000000
-      internalID: 1573245032970343668
+      spriteID: 346efd0f32cf5d8e0800000000000000
+      internalID: -1669150855575640509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bateria_5
+      name: Frascos_4
       rect:
         serializedVersion: 2
-        x: 25
-        y: 0
-        width: 6
-        height: 15
+        x: 1
+        y: 35
+        width: 17
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +211,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 18d0ad513a09ed5c0800000000000000
-      internalID: -4188751573287301759
+      spriteID: e0b7fc38fca546e30800000000000000
+      internalID: 4495818175338740494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frascos_5
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 37
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea83f95c107bb920800000000000000
+      internalID: 3007120443270466283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frascos_6
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 38
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0d150b86b113b60800000000000000
+      internalID: 7723984972365811931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frascos_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f98e8951d1ae1350800000000000000
+      internalID: 5989402474972088816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frascos_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7479c70c422913b0800000000000000
+      internalID: -5541360156559182725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frascos_9
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 2
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1e521031ae953c10800000000000000
+      internalID: 2032705221961080346
       vertices: []
       indices: 
       edges: []
@@ -250,7 +331,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e5bd551c2c9afb547b89a089061ac3fb
+    spriteID: a0c598da43ddea446973ac86023ee258
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +341,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bateria_0: 3469178385484208995
-      Bateria_1: -4903254553845163760
-      Bateria_2: -2307794284884632615
-      Bateria_3: -7017983711608374906
-      Bateria_4: 1573245032970343668
-      Bateria_5: -4188751573287301759
+      Frascos_0: -4662585570535470772
+      Frascos_1: -8060854983358967397
+      Frascos_10: -1609405964448924615
+      Frascos_2: -1669150855575640509
+      Frascos_3: -105525840838531708
+      Frascos_4: 4495818175338740494
+      Frascos_5: 3007120443270466283
+      Frascos_6: 7723984972365811931
+      Frascos_7: 5989402474972088816
+      Frascos_8: -5541360156559182725
+      Frascos_9: 2032705221961080346
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

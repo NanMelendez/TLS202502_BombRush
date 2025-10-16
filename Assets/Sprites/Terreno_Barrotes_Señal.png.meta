@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: c6521e4b15f52bf468658ad730c754ac
+guid: 7c88ad97f5e6eca4e91504183d96d94f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3469178385484208995
-    second: Bateria_0
+      213: -5785027261256803530
+    second: "Terreno_Barrotes_Se\xF1al_0"
   - first:
-      213: -4903254553845163760
-    second: Bateria_1
+      213: 816171407472841139
+    second: "Terreno_Barrotes_Se\xF1al_1"
   - first:
-      213: -2307794284884632615
-    second: Bateria_2
+      213: -3769868767777078538
+    second: "Terreno_Barrotes_Se\xF1al_2"
   - first:
-      213: -7017983711608374906
-    second: Bateria_3
+      213: -4020364267209671257
+    second: "Terreno_Barrotes_Se\xF1al_3"
   - first:
-      213: 1573245032970343668
-    second: Bateria_4
+      213: -5442326683119341094
+    second: "Terreno_Barrotes_Se\xF1al_4"
   - first:
-      213: -4188751573287301759
-    second: Bateria_5
+      213: -6366604350589687667
+    second: "Terreno_Barrotes_Se\xF1al_5"
+  - first:
+      213: -6761690950101775176
+    second: "Terreno_Barrotes_Se\xF1al_6"
+  - first:
+      213: -1077253811423833268
+    second: "Terreno_Barrotes_Se\xF1al_7"
+  - first:
+      213: -3405210761927331465
+    second: "Terreno_Barrotes_Se\xF1al_8"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bateria_0
+      name: "Terreno_Barrotes_Se\xF1al_0"
       rect:
         serializedVersion: 2
-        x: 1
-        y: 17
-        width: 15
-        height: 14
+        x: 0
+        y: 63
+        width: 34
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +139,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 36bdf317c5ff42030800000000000000
-      internalID: 3469178385484208995
+      spriteID: 63b56d43b5477bfa0800000000000000
+      internalID: -5785027261256803530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bateria_1
+      name: "Terreno_Barrotes_Se\xF1al_1"
       rect:
         serializedVersion: 2
-        x: 1
+        x: 38
+        y: 64
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1df32229f935b00800000000000000
+      internalID: 816171407472841139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Terreno_Barrotes_Se\xF1al_2"
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 64
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f2cece445cbeabc0800000000000000
+      internalID: -3769868767777078538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Terreno_Barrotes_Se\xF1al_3"
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 6
-        height: 15
+        width: 36
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0191eba36f324fbb0800000000000000
-      internalID: -4903254553845163760
+      spriteID: 7ad3b41fffbc438c0800000000000000
+      internalID: -4020364267209671257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bateria_2
+      name: "Terreno_Barrotes_Se\xF1al_4"
       rect:
         serializedVersion: 2
-        x: 9
-        y: 0
-        width: 6
-        height: 15
+        x: 35
+        y: 25
+        width: 41
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9db56ca335119ffd0800000000000000
-      internalID: -2307794284884632615
+      spriteID: ad1ba0567b8f874b0800000000000000
+      internalID: -5442326683119341094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bateria_3
+      name: "Terreno_Barrotes_Se\xF1al_5"
       rect:
         serializedVersion: 2
-        x: 17
-        y: 0
-        width: 6
-        height: 15
+        x: 77
+        y: 42
+        width: 30
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 689fa164ffc1b9e90800000000000000
-      internalID: -7017983711608374906
+      spriteID: d8825a9231745a7a0800000000000000
+      internalID: -6366604350589687667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bateria_4
+      name: "Terreno_Barrotes_Se\xF1al_6"
       rect:
         serializedVersion: 2
-        x: 20
-        y: 16
-        width: 7
-        height: 15
+        x: 77
+        y: 26
+        width: 31
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,30 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f458d6a50a45d510800000000000000
-      internalID: 1573245032970343668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bateria_5
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 0
-        width: 6
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 18d0ad513a09ed5c0800000000000000
-      internalID: -4188751573287301759
+      spriteID: 8bcc536e7e5a922a0800000000000000
+      internalID: -6761690950101775176
       vertices: []
       indices: 
       edges: []
@@ -250,7 +281,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e5bd551c2c9afb547b89a089061ac3fb
+    spriteID: 14d4b3b80fd66774f94a21bff7c09244
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +291,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bateria_0: 3469178385484208995
-      Bateria_1: -4903254553845163760
-      Bateria_2: -2307794284884632615
-      Bateria_3: -7017983711608374906
-      Bateria_4: 1573245032970343668
-      Bateria_5: -4188751573287301759
+      "Terreno_Barrotes_Se\xF1al_0": -5785027261256803530
+      "Terreno_Barrotes_Se\xF1al_1": 816171407472841139
+      "Terreno_Barrotes_Se\xF1al_2": -3769868767777078538
+      "Terreno_Barrotes_Se\xF1al_3": -4020364267209671257
+      "Terreno_Barrotes_Se\xF1al_4": -5442326683119341094
+      "Terreno_Barrotes_Se\xF1al_5": -6366604350589687667
+      "Terreno_Barrotes_Se\xF1al_6": -6761690950101775176
+      "Terreno_Barrotes_Se\xF1al_7": -1077253811423833268
+      "Terreno_Barrotes_Se\xF1al_8": -3405210761927331465
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

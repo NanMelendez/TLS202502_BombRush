@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: 7191dfa567d7cfd42864b4805a78e628
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5759821133842823855
+    second: "Ventilaci\xF3n_0"
+  - first:
+      213: -7826999485567224794
+    second: "Ventilaci\xF3n_1"
+  - first:
+      213: -8181448684984919068
+    second: "Ventilaci\xF3n_2"
+  - first:
+      213: -908300503869169900
+    second: "Ventilaci\xF3n_3"
+  - first:
+      213: 2453704052899287654
+    second: "Ventilaci\xF3n_4"
+  - first:
+      213: 7665131837640146373
+    second: "Ventilaci\xF3n_5"
+  - first:
+      213: 3639747926291356029
+    second: "Ventilaci\xF3n_6"
+  - first:
+      213: -3374061911184801645
+    second: "Ventilaci\xF3n_7"
+  - first:
+      213: -9064270838221170185
+    second: "Ventilaci\xF3n_8"
+  - first:
+      213: 3466431474132733358
+    second: "Ventilaci\xF3n_9"
+  - first:
+      213: 4462736178801043092
+    second: "Ventilaci\xF3n_10"
+  - first:
+      213: -8587459205310594480
+    second: "Ventilaci\xF3n_11"
+  - first:
+      213: -126879688561589969
+    second: "Ventilaci\xF3n_12"
+  - first:
+      213: 5142644081517437772
+    second: "Ventilaci\xF3n_13"
+  - first:
+      213: 5209097913800140129
+    second: "Ventilaci\xF3n_14"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 59
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155c28312310110b0800000000000000
+      internalID: -5759821133842823855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_1"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 624b995ef69e06390800000000000000
+      internalID: -7826999485567224794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_2"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 136
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb1367a4c7a57e80800000000000000
+      internalID: -8181448684984919068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_3"
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 136
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41fd19d01811563f0800000000000000
+      internalID: -908300503869169900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_4"
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 136
+        width: 60
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6629ff8f5de4d0220800000000000000
+      internalID: 2453704052899287654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_5"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 91
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cdf3137bc4006a60800000000000000
+      internalID: 7665131837640146373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_6"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 70
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d799f8a647bf28230800000000000000
+      internalID: 3639747926291356029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_7"
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 67
+        width: 66
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39087ad719cec21d0800000000000000
+      internalID: -3374061911184801645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_8"
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 100
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f915eb72bd353280800000000000000
+      internalID: -9064270838221170185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_9"
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 66
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead4aed4f0d3b1030800000000000000
+      internalID: 3466431474132733358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_10"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 63
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49668b7f8e2deed30800000000000000
+      internalID: 4462736178801043092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_11"
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 33
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052cd40e95733d880800000000000000
+      internalID: -8587459205310594480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_12"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 66
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f210312789b3d3ef0800000000000000
+      internalID: -126879688561589969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ventilaci\xF3n_13"
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c43ac159b875e5740800000000000000
+      internalID: 5142644081517437772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c9ceb6f48ca250b48a298a2282bddc8d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Ventilaci\xF3n_0": -5759821133842823855
+      "Ventilaci\xF3n_1": -7826999485567224794
+      "Ventilaci\xF3n_10": 4462736178801043092
+      "Ventilaci\xF3n_11": -8587459205310594480
+      "Ventilaci\xF3n_12": -126879688561589969
+      "Ventilaci\xF3n_13": 5142644081517437772
+      "Ventilaci\xF3n_14": 5209097913800140129
+      "Ventilaci\xF3n_2": -8181448684984919068
+      "Ventilaci\xF3n_3": -908300503869169900
+      "Ventilaci\xF3n_4": 2453704052899287654
+      "Ventilaci\xF3n_5": 7665131837640146373
+      "Ventilaci\xF3n_6": 3639747926291356029
+      "Ventilaci\xF3n_7": -3374061911184801645
+      "Ventilaci\xF3n_8": -9064270838221170185
+      "Ventilaci\xF3n_9": 3466431474132733358
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
