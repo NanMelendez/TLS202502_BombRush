@@ -23,25 +23,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gm.getJuegoTerminado())
+        Vector2 direction = playerControls.action.ReadValue<Vector2>();
+        float jumpBtn = playerJumpControl.action.ReadValue<float>();
+
+        rb2d.linearVelocityX = direction.x * speed;
+
+        if (direction.x != 0.0f)
+            playerRenderer.flipX = direction.x < 0.0f;
+
+        if ((direction.y > 0.0f || jumpBtn != 0.0f) && isTouchingFloor)
         {
-            Vector2 direction = playerControls.action.ReadValue<Vector2>();
-            float jumpBtn = playerJumpControl.action.ReadValue<float>();
-
-            rb2d.linearVelocityX = direction.x * speed;
-
-            if (direction.x != 0.0f)
-                playerRenderer.flipX = direction.x < 0.0f;
-
-            if ((direction.y > 0.0f || jumpBtn != 0.0f) && isTouchingFloor)
-            {
-                rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-                isTouchingFloor = false;
-            }
-        }
-        else
-        {
-            rb2d.linearVelocity = new Vector2(0.0f, 0.0f);
+            rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            isTouchingFloor = false;
         }
     }
 

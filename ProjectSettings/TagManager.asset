@@ -8,6 +8,8 @@ TagManager:
   - pickTime
   - pickEnergy
   - Goal
+  - Time
+  - Energy
   layers:
   - Default
   - TransparentFX

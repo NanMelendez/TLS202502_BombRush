@@ -9,10 +9,9 @@ public class GameManager : MonoBehaviour
 {
     [Tooltip("Cuenta regresiva en segundos antes de que el jugador explote")]
     public float tiempo;
-    public TextMeshProUGUI txtTiempo;
-    public Slider sldTiempo;
-    public TextMeshProUGUI txtEnergia;
-    public Slider sldEnergia;
+    public SliderLogic sldTiempo;
+    public float ratioPerdidaEnergia;
+    public SliderLogic sldEnergia;
     public GameObject jugador;
     public GameObject meta;
     public Slider avanceJugador;
@@ -23,14 +22,9 @@ public class GameManager : MonoBehaviour
     private float tiempoRestante;
 
     private float energia;
-    [SerializeField]
-    private float ratioPerdidaEnergia;
 
     private int estrellas;
-
-    private bool juegoTerminado;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         posInicial = jugador.transform.position;
@@ -39,58 +33,37 @@ public class GameManager : MonoBehaviour
         tiempoRestante = tiempo;
         energia = 100.0f;
         estrellas = 0;
-        juegoTerminado = false;
-    }
 
-    // Update is called once per frame
+        sldEnergia.SetMaxValue(100.0f);
+        sldTiempo.SetMaxValue(tiempo);
+    }
+    
     void Update()
     {
-        sldTiempo.value = tiempoRestante / tiempo;
-        txtTiempo.text = TimeToStr(tiempoRestante);
+        sldTiempo.SetValue(tiempoRestante);
+        sldEnergia.SetValue(energia);
 
-        sldEnergia.value = energia / 100.0f;
-        txtEnergia.text = EnergyToStr(energia);
-
-        if (!juegoTerminado)
-        {
-            CountdownLogic();
-            EnergyLossLogic();
-        }
+        CountdownLogic();
+        EnergyLossLogic();
 
         avanceJugador.value = Mathf.Clamp(1.0f - Vector2.Distance(jugador.transform.position, posMeta) / distInicial, 0.0f, 1.0f);
-    }
-
-    private string TimeToStr(float t)
-    {
-        int minutes = Mathf.FloorToInt(t / 60.0f);
-        int seconds = Mathf.FloorToInt(t % 60.0f);
-
-        return string.Format("{0:0}:{1:00}", minutes, seconds);
-    }
-
-    private string EnergyToStr(float e)
-    {
-        return string.Format("{0}%", Mathf.Round(e));
-    }
-
-    public void AddTime(float t)
-    {
-        tiempoRestante = Mathf.Min(tiempoRestante + t, tiempo);
     }
 
     public void AddEnergy(float e)
     {
         energia = Mathf.Min(energia + e, 100.0f);
+        sldEnergia.SetValue(energia);
     }
 
-    public bool getJuegoTerminado()
+    public void AddTime(float t)
     {
-        return juegoTerminado;
+        tiempoRestante = Mathf.Min(tiempoRestante + t, tiempo);
+        sldTiempo.SetValue(tiempoRestante);
     }
 
     public void Win()
     {
-        juegoTerminado = true;
+        Time.timeScale = 0.0f;
         CalculateStars();
         Debug.Log("Estrellas obtenidas: " + estrellas);
     }
