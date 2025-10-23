@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -29,12 +30,21 @@ public class Player : MonoBehaviour
         rb2d.linearVelocityX = direction.x * speed;
 
         if (direction.x != 0.0f)
-            playerRenderer.flipX = direction.x < 0.0f;
+        {
+            transform.localScale = new Vector3(direction.x, 1.0f, 1.0f);
+        }
 
         if ((direction.y > 0.0f || jumpBtn != 0.0f) && isTouchingFloor)
         {
             rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             isTouchingFloor = false;
+        }
+        
+        if (gm.GetRemainingTime() < 30.0f)
+        {
+            float freq = gm.GetRemainingTime() > 20.0f ? 2.0f : (gm.GetRemainingTime() > 10.0f ? 5.0f : 20.0f);
+
+            playerRenderer.color = Color.Lerp(new Color(1.0f, 1.0f, 1.0f), new Color(1.0f, 0.0f, 0.0f), 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
         }
     }
 

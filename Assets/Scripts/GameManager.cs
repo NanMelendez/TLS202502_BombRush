@@ -68,6 +68,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Estrellas obtenidas: " + estrellas);
     }
 
+    public float GetRemainingTime()
+    {
+        return tiempoRestante;
+    }
+
     private void CalculateStars()
     {
         if (energia > 75.0f)
@@ -92,7 +97,7 @@ public class GameManager : MonoBehaviour
     private void EnergyLossLogic()
     {
         if (energia > 0.0f)
-            energia -= ratioPerdidaEnergia;
+            energia -= ratioPerdidaEnergia * Time.deltaTime;
 
         if (energia < 0.0f)
             energia = 0.0f;

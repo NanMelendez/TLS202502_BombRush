@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d83b6294210264d49999cacb46ee0ec6
+guid: 0f0131e2498c66b4a8b5ad5161e533be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5564248608999137188
-    second: energy_0
+      213: -410092630242279180
+    second: TiempoUI_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: energy_0
+      name: TiempoUI_0
       rect:
         serializedVersion: 2
-        x: 55
+        x: 0
         y: 0
-        width: 402
-        height: 512
+        width: 341
+        height: 151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5025aaee51d7c2b0800000000000000
-      internalID: -5564248608999137188
+      spriteID: 4f04761fcee0f4af0800000000000000
+      internalID: -410092630242279180
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      energy_0: -5564248608999137188
+      TiempoUI_0: -410092630242279180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

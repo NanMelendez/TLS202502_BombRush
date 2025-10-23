@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 582369483657091375}
   - component: {fileID: 2498967860107644548}
   m_Layer: 0
-  m_Name: New Tile Palette
+  m_Name: Escenario Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
