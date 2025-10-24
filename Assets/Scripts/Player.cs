@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float jumpSpeed;
     public float slideSpeed;
     public Rigidbody2D rb2d;
+    public float gravFactor;
     public Transform wallChecker;
     public LayerMask wallLayer;
     public InputActionReference playerControls;
@@ -110,6 +111,17 @@ public class Player : MonoBehaviour
 
     private void VerticalMovement(float vtDir, float jumping)
     {
+        rb2d.gravityScale = 1.0f;
+
+        // if (vtDir != 0.0f)
+        // {
+        //     rb2d.gravityScale = 2.5f;
+        // }
+        // else
+        // {
+        //     rb2d.gravityScale = 1.0f;
+        // }
+
         if ((vtDir > 0.0f || jumping != 0.0f) && isTouchingFloor)
         {
             rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
@@ -120,6 +132,7 @@ public class Player : MonoBehaviour
         if (rb2d.linearVelocityY < 0.0f && !isTouchingFloor)
         {
             isFalling = true;
+            rb2d.gravityScale = gravFactor;
         }
 
         animator.SetBool("estaCayendo", isFalling);
