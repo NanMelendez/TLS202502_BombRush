@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
     {
         isSliding = false;
 
-        if (checkWall() && !isTouchingFloor && hzMov != 0.0f)
+        if (checkWall() && !isTouchingFloor && velMod > 0)
         {
             isSliding = true;
             rb2d.linearVelocityY = Mathf.Clamp(rb2d.linearVelocityY, -slideSpeed, float.MaxValue);
