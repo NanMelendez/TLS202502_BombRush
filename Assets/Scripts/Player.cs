@@ -8,12 +8,20 @@ public class Player : MonoBehaviour
     public SpriteRenderer playerRenderer;
     public float speed;
     public float jumpSpeed;
+    public float slideSpeed;
     public Rigidbody2D rb2d;
+    public Transform wallChecker;
+    public LayerMask wallLayer;
     public InputActionReference playerControls;
     public InputActionReference playerJumpControl;
+    public InputActionReference playerSprintControl;
+    public Animator animator;
     public GameManager gm;
 
     private bool isTouchingFloor;
+    private bool isFalling;
+    private bool isSliding;
+    private int velMod;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,32 +34,32 @@ public class Player : MonoBehaviour
     {
         Vector2 direction = playerControls.action.ReadValue<Vector2>();
         float jumpBtn = playerJumpControl.action.ReadValue<float>();
+        float sprintBtn = playerSprintControl.action.ReadValue<float>();
 
-        rb2d.linearVelocityX = direction.x * speed;
+        HorizontalMovement(direction.x, sprintBtn);
+        VerticalMovement(direction.y, jumpBtn);
+        wallSlide(direction.x);
 
-        if (direction.x != 0.0f)
-        {
-            transform.localScale = new Vector3(direction.x, 1.0f, 1.0f);
-        }
-
-        if ((direction.y > 0.0f || jumpBtn != 0.0f) && isTouchingFloor)
-        {
-            rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-            isTouchingFloor = false;
-        }
-        
         if (gm.GetRemainingTime() < 30.0f)
         {
             float freq = gm.GetRemainingTime() > 20.0f ? 2.0f : (gm.GetRemainingTime() > 10.0f ? 5.0f : 20.0f);
 
             playerRenderer.color = Color.Lerp(new Color(1.0f, 1.0f, 1.0f), new Color(1.0f, 0.0f, 0.0f), 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
         }
+        
+        if (gm.GetRemainingTime() == 0.0f)
+        {
+            animator.SetTrigger("tiempoTerminado");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
+        {
             isTouchingFloor = true;
+            isFalling = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -76,5 +84,62 @@ public class Player : MonoBehaviour
                 gm.Win();
             }
         }
+    }
+
+    private void HorizontalMovement(float hzDir, float sprint)
+    {
+        float sprintFactor = 1.0f;
+
+        velMod = 0;
+
+        if (hzDir != 0.0f)
+        {
+            transform.localScale = new Vector3(hzDir, 1.0f, 1.0f);
+            velMod = 1;
+
+            if (sprint > 0.0f)
+            {
+                sprintFactor = 1.5f;
+                velMod = 2;
+            }
+        }
+
+        rb2d.linearVelocityX = hzDir * speed * sprintFactor;
+        animator.SetInteger("velMod", velMod);
+    }
+
+    private void VerticalMovement(float vtDir, float jumping)
+    {
+        if ((vtDir > 0.0f || jumping != 0.0f) && isTouchingFloor)
+        {
+            rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            isTouchingFloor = false;
+            animator.SetTrigger("estaSaltando");
+        }
+
+        if (rb2d.linearVelocityY < 0.0f && !isTouchingFloor)
+        {
+            isFalling = true;
+        }
+
+        animator.SetBool("estaCayendo", isFalling);
+    }
+
+    private bool checkWall()
+    {
+        return Physics2D.OverlapCircle(wallChecker.position, 0.5f, wallLayer);
+    }
+
+    private void wallSlide(float hzMov)
+    {
+        isSliding = false;
+
+        if (checkWall() && !isTouchingFloor && hzMov != 0.0f)
+        {
+            isSliding = true;
+            rb2d.linearVelocityY = Mathf.Clamp(rb2d.linearVelocityY, -slideSpeed, float.MaxValue);
+        }
+
+        animator.SetBool("estaDeslizando", isSliding);
     }
 }

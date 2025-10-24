@@ -10,11 +10,12 @@ TagManager:
   - Goal
   - Time
   - Energy
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - 
