@@ -11,24 +11,20 @@ public class Player : MonoBehaviour
     public float slideSpeed;
     public Rigidbody2D rb2d;
     public float gravFactor;
-    public Transform wallChecker;
+    public Vector2 wallcheckSize;
+    public float wallcheckCastDistance;
     public LayerMask wallLayer;
+    public Vector2 groundcheckSize;
+    public float groundcheckCastDistance;
+    public LayerMask groundLayer;
     public InputActionReference playerControls;
     public InputActionReference playerJumpControl;
     public InputActionReference playerSprintControl;
     public Animator animator;
     public GameManager gm;
-
-    private bool isTouchingFloor;
     private bool isFalling;
     private bool isSliding;
     private int velMod;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        isTouchingFloor = false;
-    }
 
     // Update is called once per frame
     void Update()
@@ -37,29 +33,24 @@ public class Player : MonoBehaviour
         float jumpBtn = playerJumpControl.action.ReadValue<float>();
         float sprintBtn = playerSprintControl.action.ReadValue<float>();
 
+        // GroundCheck();
+        Debug.Log("Is grounded? " + (IsGrounded() ? "YES" : "NO") + " Is hitting a wall? " + (IsHittingWall() ? "YES" : "NO"));
         HorizontalMovement(direction.x, sprintBtn);
         VerticalMovement(direction.y, jumpBtn);
-        wallSlide(direction.x);
+        WallSlide(direction.x);
 
         if (gm.GetRemainingTime() < 30.0f)
         {
             float freq = gm.GetRemainingTime() > 20.0f ? 2.0f : (gm.GetRemainingTime() > 10.0f ? 5.0f : 20.0f);
 
-            playerRenderer.color = Color.Lerp(new Color(1.0f, 1.0f, 1.0f), new Color(1.0f, 0.0f, 0.0f), 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
+            playerRenderer.color = Color.Lerp(Color.white, Color.red, 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
         }
-        
+        else
+            playerRenderer.color = Color.white;
+
         if (gm.GetRemainingTime() == 0.0f)
         {
             animator.SetTrigger("tiempoTerminado");
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isTouchingFloor = true;
-            isFalling = false;
         }
     }
 
@@ -85,6 +76,18 @@ public class Player : MonoBehaviour
                 gm.Win();
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position - transform.up * groundcheckCastDistance, groundcheckSize);
+        Gizmos.DrawWireCube(transform.position + transform.right * transform.localScale.x * wallcheckCastDistance, wallcheckSize);
+        // Debug.Log("Hitting ground? " + (IsGrounded() ? "YES" : "NO") + " Hitting Wall? " + (IsHittingWall() ? "YES" : "NO"));
+    }
+
+    bool IsGrounded()
+    {
+        return Physics2D.BoxCast(transform.position, groundcheckSize, 0, -transform.up, groundcheckCastDistance, groundLayer);
     }
 
     private void HorizontalMovement(float hzDir, float sprint)
@@ -113,41 +116,37 @@ public class Player : MonoBehaviour
     {
         rb2d.gravityScale = 1.0f;
 
-        // if (vtDir != 0.0f)
-        // {
-        //     rb2d.gravityScale = 2.5f;
-        // }
-        // else
-        // {
-        //     rb2d.gravityScale = 1.0f;
-        // }
-
-        if ((vtDir > 0.0f || jumping != 0.0f) && isTouchingFloor)
+        if (IsGrounded())
         {
-            rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-            isTouchingFloor = false;
-            animator.SetTrigger("estaSaltando");
+            if (vtDir > 0.0f || jumping != 0.0f)
+            {
+                rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                animator.SetTrigger("estaSaltando");
+                isFalling = false;
+            }
         }
-
-        if (rb2d.linearVelocityY < 0.0f && !isTouchingFloor)
+        else
         {
-            isFalling = true;
-            rb2d.gravityScale = gravFactor;
+            if (rb2d.linearVelocityY < 0.0f)
+            {
+                isFalling = true;
+                rb2d.gravityScale = gravFactor;
+            }
         }
 
         animator.SetBool("estaCayendo", isFalling);
     }
 
-    private bool checkWall()
+    bool IsHittingWall()
     {
-        return Physics2D.OverlapCircle(wallChecker.position, 0.5f, wallLayer);
+        return Physics2D.BoxCast(transform.position, wallcheckSize, 0, transform.right * transform.localScale.x, wallcheckCastDistance, wallLayer);
     }
 
-    private void wallSlide(float hzMov)
+    private void WallSlide(float hzMov)
     {
         isSliding = false;
 
-        if (checkWall() && !isTouchingFloor && velMod > 0)
+        if (IsHittingWall() && !IsGrounded() && velMod > 0)
         {
             isSliding = true;
             rb2d.linearVelocityY = Mathf.Clamp(rb2d.linearVelocityY, -slideSpeed, float.MaxValue);

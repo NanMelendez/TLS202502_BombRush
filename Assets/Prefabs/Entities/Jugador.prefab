@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1165999341723590492
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6064872359073029807}
-  m_Layer: 0
-  m_Name: Piso Check
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6064872359073029807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165999341723590492}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6614499911395236522}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5365730911601309850
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,8 +36,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1206168567968682896}
-  - {fileID: 3970588985219239851}
-  - {fileID: 6064872359073029807}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3217196323975899876
@@ -220,10 +187,16 @@ MonoBehaviour:
   slideSpeed: 10
   rb2d: {fileID: 6911206868144316122}
   gravFactor: 2.5
-  wallChecker: {fileID: 3970588985219239851}
+  wallcheckSize: {x: 0.125, y: 1.25}
+  wallcheckCastDistance: 0.85
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
+  groundcheckSize: {x: 1.25, y: 0.125}
+  groundcheckCastDistance: 0.7
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   playerControls: {fileID: 8793659846076776340, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
   playerJumpControl: {fileID: -7605621389634730764, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
   playerSprintControl: {fileID: -8057222564235011905, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
@@ -394,34 +367,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &6998444587831301087
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3970588985219239851}
-  m_Layer: 0
-  m_Name: Pared Check
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3970588985219239851
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6998444587831301087}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6614499911395236522}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
