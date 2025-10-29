@@ -25,6 +25,13 @@ public class Player : MonoBehaviour
     private bool isFalling;
     private bool isSliding;
     private int velMod;
+    private bool hasJumpedSinceGrounded;
+
+    void Start()
+    {
+        isSliding = false;
+        isFalling = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,10 +40,8 @@ public class Player : MonoBehaviour
         float jumpBtn = playerJumpControl.action.ReadValue<float>();
         float sprintBtn = playerSprintControl.action.ReadValue<float>();
 
-        // GroundCheck();
-        Debug.Log("Is grounded? " + (IsGrounded() ? "YES" : "NO") + " Is hitting a wall? " + (IsHittingWall() ? "YES" : "NO"));
-        HorizontalMovement(direction.x, sprintBtn);
-        VerticalMovement(direction.y, jumpBtn);
+        HorizontalMovement(Mathf.Round(direction.x), sprintBtn);
+        VerticalMovement(Mathf.Round(direction.y), jumpBtn);
         WallSlide(direction.x);
 
         if (gm.GetRemainingTime() < 30.0f)
@@ -82,7 +87,6 @@ public class Player : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position - transform.up * groundcheckCastDistance, groundcheckSize);
         Gizmos.DrawWireCube(transform.position + transform.right * transform.localScale.x * wallcheckCastDistance, wallcheckSize);
-        // Debug.Log("Hitting ground? " + (IsGrounded() ? "YES" : "NO") + " Hitting Wall? " + (IsHittingWall() ? "YES" : "NO"));
     }
 
     bool IsGrounded()
@@ -116,24 +120,29 @@ public class Player : MonoBehaviour
     {
         rb2d.gravityScale = 1.0f;
 
-        if (IsGrounded())
+        bool jumpSignal = vtDir > 0.0f || jumping != 0.0f;
+        bool grounded = IsGrounded();
+
+        if (grounded)
         {
-            if (vtDir > 0.0f || jumping != 0.0f)
-            {
-                rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-                animator.SetTrigger("estaSaltando");
-                isFalling = false;
-            }
-        }
-        else
-        {
-            if (rb2d.linearVelocityY < 0.0f)
-            {
-                isFalling = true;
-                rb2d.gravityScale = gravFactor;
-            }
+            hasJumpedSinceGrounded = false;
+            isFalling = false;
         }
 
+        if (grounded && jumpSignal && !hasJumpedSinceGrounded)
+        {
+            rb2d.linearVelocityY = 0.0f;
+            rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            animator.SetTrigger("estaSaltando");
+            hasJumpedSinceGrounded = true;
+        }
+
+        if (rb2d.linearVelocityY < 0.0f && !grounded)
+        {
+            isFalling = true;
+            rb2d.gravityScale = gravFactor + (vtDir < 0.0f ? 2.5f : 0.0f);
+        }
+        // Debug.Log(rb2d.gravityScale);
         animator.SetBool("estaCayendo", isFalling);
     }
 
@@ -145,8 +154,8 @@ public class Player : MonoBehaviour
     private void WallSlide(float hzMov)
     {
         isSliding = false;
-
-        if (IsHittingWall() && !IsGrounded() && velMod > 0)
+        
+        if (IsHittingWall() && !IsGrounded() && (velMod > 0))
         {
             isSliding = true;
             rb2d.linearVelocityY = Mathf.Clamp(rb2d.linearVelocityY, -slideSpeed, float.MaxValue);
