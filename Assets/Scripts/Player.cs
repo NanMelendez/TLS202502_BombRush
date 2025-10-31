@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     public float jumpSpeed;
     public float slideSpeed;
     public Rigidbody2D rb2d;
-    public float gravFactor;
+    public float gravJumpFactor;
+    public float gravFallFactor;
     public Vector2 wallcheckSize;
     public float wallcheckCastDistance;
     public LayerMask wallLayer;
@@ -21,16 +22,20 @@ public class Player : MonoBehaviour
     public InputActionReference playerJumpControl;
     public InputActionReference playerSprintControl;
     public Animator animator;
+    public SpriteRenderer slimeRenderer;
     public GameManager gm;
     private bool isFalling;
     private bool isSliding;
     private int velMod;
     private bool hasJumpedSinceGrounded;
+    private Color baseColor;
 
     void Start()
     {
         isSliding = false;
         isFalling = true;
+        slimeRenderer.enabled = false;
+        baseColor = Color.white;
     }
 
     // Update is called once per frame
@@ -47,10 +52,10 @@ public class Player : MonoBehaviour
         {
             float freq = gm.GetRemainingTime() > 20.0f ? 2.0f : (gm.GetRemainingTime() > 10.0f ? 5.0f : 20.0f);
 
-            playerRenderer.color = Color.Lerp(Color.white, Color.red, 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
+            playerRenderer.color = Color.Lerp(baseColor, Color.red, 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
         }
         else
-            playerRenderer.color = Color.white;
+            playerRenderer.color = baseColor;
 
         if (gm.GetRemainingTime() == 0.0f)
         {
@@ -124,6 +129,8 @@ public class Player : MonoBehaviour
             rb2d.linearVelocityY = -slideSpeed;
         }
 
+        slimeRenderer.enabled = isSliding;
+
         rb2d.linearVelocityX = hzDir * speed * sprintFactor;
         animator.SetInteger("velMod", velMod);
         animator.SetBool("estaDeslizando", isSliding);
@@ -131,7 +138,7 @@ public class Player : MonoBehaviour
 
     private void VerticalMovement(float vtDir, float jumping)
     {
-        rb2d.gravityScale = 1.0f;
+        rb2d.gravityScale = gravJumpFactor;
 
         bool jumpSignal = vtDir > 0.0f || jumping != 0.0f;
         bool grounded = IsGrounded();
@@ -153,8 +160,11 @@ public class Player : MonoBehaviour
         if (rb2d.linearVelocityY < 0.0f && !grounded)
         {
             isFalling = true;
-            rb2d.gravityScale = gravFactor + (vtDir < 0.0f ? 2.5f : 0.0f);
+            rb2d.gravityScale = gravFallFactor + (vtDir < 0.0f ? 2.5f : 0.0f);
         }
+
+        baseColor = (vtDir < 0.0f && !grounded) ? Color.lightBlue : Color.white;
+
         animator.SetBool("estaCayendo", isFalling);
     }
 }

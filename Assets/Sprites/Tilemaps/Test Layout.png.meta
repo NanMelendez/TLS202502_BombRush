@@ -747,7 +747,7 @@ TextureImporter:
       name: Test Layout_23
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -757,10 +757,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 3, y: 8}
-        - {x: -3, y: 8}
-        - {x: -3, y: -3}
-        - {x: 3, y: -3}
+      - - {x: 8, y: 0}
+        - {x: 0, y: 0}
+        - {x: 0, y: -8}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: 19aac2de66087524fac83658bbc5a81c
@@ -771,6 +771,110 @@ TextureImporter:
       weights: []
     - serializedVersion: 2
       name: Test Layout_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 0, y: 0}
+        - {x: -8, y: 0}
+        - {x: -8, y: -8}
+        - {x: 0, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8342ebfd5be917b4baf04b912affc8a3
+      internalID: -584111464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Test Layout_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -3}
+        - {x: 3, y: 8}
+        - {x: -3, y: 8}
+        - {x: -3, y: -3}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14847804975fe714f8d3ab80c19e82d6
+      internalID: -82804941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Test Layout_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: 0, y: 8}
+        - {x: 0, y: 0}
+        - {x: 8, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad4abd39a10afe64ea20e7a98468e9b9
+      internalID: 721366342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Test Layout_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 0, y: 8}
+        - {x: -8, y: 8}
+        - {x: -8, y: 0}
+        - {x: 0, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce862cb4d248d75408dff0c4e5a2f0d3
+      internalID: 1350194471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Test Layout_28
       rect:
         serializedVersion: 2
         x: 80
@@ -789,8 +893,8 @@ TextureImporter:
         - {x: 8, y: -3}
       tessellationDetail: 0
       bones: []
-      spriteID: 8342ebfd5be917b4baf04b912affc8a3
-      internalID: -584111464
+      spriteID: 6f9e6fd25df49864989008a4c934cfc6
+      internalID: -1623600142
       vertices: []
       indices: 
       edges: []
@@ -829,6 +933,10 @@ TextureImporter:
       Test Layout_22: 1106724050
       Test Layout_23: 1943935915
       Test Layout_24: -584111464
+      Test Layout_25: -82804941
+      Test Layout_26: 721366342
+      Test Layout_27: 1350194471
+      Test Layout_28: -1623600142
       Test Layout_3: -172338947635686958
       Test Layout_4: 5956399190169499015
       Test Layout_5: -2630303729995571724
