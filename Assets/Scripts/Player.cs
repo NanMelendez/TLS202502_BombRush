@@ -42,7 +42,6 @@ public class Player : MonoBehaviour
 
         HorizontalMovement(Mathf.Round(direction.x), sprintBtn);
         VerticalMovement(Mathf.Round(direction.y), jumpBtn);
-        WallSlide(direction.x);
 
         if (gm.GetRemainingTime() < 30.0f)
         {
@@ -94,11 +93,17 @@ public class Player : MonoBehaviour
         return Physics2D.BoxCast(transform.position, groundcheckSize, 0, -transform.up, groundcheckCastDistance, groundLayer);
     }
 
+    bool IsHittingWall()
+    {
+        return Physics2D.BoxCast(transform.position, wallcheckSize, 0, transform.right * transform.localScale.x, wallcheckCastDistance, wallLayer);
+    }
+
     private void HorizontalMovement(float hzDir, float sprint)
     {
         float sprintFactor = 1.0f;
 
         velMod = 0;
+        isSliding = false;
 
         if (hzDir != 0.0f)
         {
@@ -112,8 +117,16 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (IsHittingWall() && !IsGrounded() && velMod > 0)
+        {
+            isSliding = true;
+            // rb2d.linearVelocityY = Mathf.Clamp(rb2d.linearVelocityY, -slideSpeed, float.MaxValue);
+            rb2d.linearVelocityY = -slideSpeed;
+        }
+
         rb2d.linearVelocityX = hzDir * speed * sprintFactor;
         animator.SetInteger("velMod", velMod);
+        animator.SetBool("estaDeslizando", isSliding);
     }
 
     private void VerticalMovement(float vtDir, float jumping)
@@ -142,25 +155,6 @@ public class Player : MonoBehaviour
             isFalling = true;
             rb2d.gravityScale = gravFactor + (vtDir < 0.0f ? 2.5f : 0.0f);
         }
-        // Debug.Log(rb2d.gravityScale);
         animator.SetBool("estaCayendo", isFalling);
-    }
-
-    bool IsHittingWall()
-    {
-        return Physics2D.BoxCast(transform.position, wallcheckSize, 0, transform.right * transform.localScale.x, wallcheckCastDistance, wallLayer);
-    }
-
-    private void WallSlide(float hzMov)
-    {
-        isSliding = false;
-        
-        if (IsHittingWall() && !IsGrounded() && (velMod > 0))
-        {
-            isSliding = true;
-            rb2d.linearVelocityY = Mathf.Clamp(rb2d.linearVelocityY, -slideSpeed, float.MaxValue);
-        }
-
-        animator.SetBool("estaDeslizando", isSliding);
     }
 }
