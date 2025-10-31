@@ -1,8 +1,7 @@
 using System;
-using System.Net.NetworkInformation;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -15,15 +14,17 @@ public class GameManager : MonoBehaviour
     public GameObject jugador;
     public GameObject meta;
     public Slider avanceJugador;
-
+    public InputActionReference pauseControl;
+    public PlayerInput uiInput;
     private Vector3 posInicial;
     private Vector3 posMeta;
     private float distInicial;
     private float tiempoRestante;
 
-    private float energia;
+    private float energia = 100.0f;
 
-    private int estrellas;
+    private int estrellas = 0;
+    private bool pauseToggle = false;
     
     void Start()
     {
@@ -31,15 +32,16 @@ public class GameManager : MonoBehaviour
         posMeta = meta.transform.position;
         distInicial = Vector2.Distance(posInicial, posMeta);
         tiempoRestante = tiempo;
-        energia = 100.0f;
-        estrellas = 0;
 
         sldEnergia.SetMaxValue(100.0f);
         sldTiempo.SetMaxValue(tiempo);
     }
-    
+
     void Update()
     {
+        float pauseBtn = pauseControl.action.ReadValue<float>();
+        pauseToggle ^= pauseBtn != 0.0f;
+
         sldTiempo.SetValue(tiempoRestante);
         sldEnergia.SetValue(energia);
 
@@ -71,6 +73,13 @@ public class GameManager : MonoBehaviour
     public float GetRemainingTime()
     {
         return tiempoRestante;
+    }
+
+    public void ReloadScene()
+    {
+        uiInput.gameObject.SetActive(false);
+        jugador.GetComponent<Player>().DisablePlayer();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void CalculateStars()

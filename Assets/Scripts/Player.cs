@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public InputActionReference playerControls;
     public InputActionReference playerJumpControl;
     public InputActionReference playerSprintControl;
+    public PlayerInput playerInput;
     public Animator animator;
     public SpriteRenderer slimeRenderer;
     public GameManager gm;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
     private int velMod;
     private bool hasJumpedSinceGrounded;
     private Color baseColor;
+    private bool gamePausedOrOver = false;
 
     void Start()
     {
@@ -41,25 +43,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = playerControls.action.ReadValue<Vector2>();
-        float jumpBtn = playerJumpControl.action.ReadValue<float>();
-        float sprintBtn = playerSprintControl.action.ReadValue<float>();
-
-        HorizontalMovement(Mathf.Round(direction.x), sprintBtn);
-        VerticalMovement(Mathf.Round(direction.y), jumpBtn);
-
-        if (gm.GetRemainingTime() < 30.0f)
+        if (!gamePausedOrOver)
         {
-            float freq = gm.GetRemainingTime() > 20.0f ? 2.0f : (gm.GetRemainingTime() > 10.0f ? 5.0f : 20.0f);
+            Vector2 direction = playerControls.action.ReadValue<Vector2>();
+            float jumpBtn = playerJumpControl.action.ReadValue<float>();
+            float sprintBtn = playerSprintControl.action.ReadValue<float>();
 
-            playerRenderer.color = Color.Lerp(baseColor, Color.red, 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
-        }
-        else
-            playerRenderer.color = baseColor;
+            HorizontalMovement(Mathf.Round(direction.x), sprintBtn);
+            VerticalMovement(Mathf.Round(direction.y), jumpBtn);
 
-        if (gm.GetRemainingTime() == 0.0f)
-        {
-            animator.SetTrigger("tiempoTerminado");
+            if (gm.GetRemainingTime() < 30.0f)
+            {
+                float freq = gm.GetRemainingTime() > 20.0f ? 2.0f : (gm.GetRemainingTime() > 10.0f ? 5.0f : 20.0f);
+
+                playerRenderer.color = Color.Lerp(baseColor, Color.red, 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
+            }
+            else
+                playerRenderer.color = baseColor;
+
+            if (gm.GetRemainingTime() == 0.0f)
+            {
+                animator.SetTrigger("tiempoTerminado");
+            }
         }
     }
 
@@ -82,6 +87,7 @@ public class Player : MonoBehaviour
             if (collision.enabled)
             {
                 collision.enabled = false;
+                gamePausedOrOver = true;
                 gm.Win();
             }
         }
@@ -91,6 +97,11 @@ public class Player : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position - transform.up * groundcheckCastDistance, groundcheckSize);
         Gizmos.DrawWireCube(transform.position + transform.right * transform.localScale.x * wallcheckCastDistance, wallcheckSize);
+    }
+
+    public void DisablePlayer()
+    {
+        playerInput.gameObject.SetActive(false);
     }
 
     bool IsGrounded()
@@ -125,7 +136,6 @@ public class Player : MonoBehaviour
         if (IsHittingWall() && !IsGrounded() && velMod > 0)
         {
             isSliding = true;
-            // rb2d.linearVelocityY = Mathf.Clamp(rb2d.linearVelocityY, -slideSpeed, float.MaxValue);
             rb2d.linearVelocityY = -slideSpeed;
         }
 
@@ -140,7 +150,9 @@ public class Player : MonoBehaviour
     {
         rb2d.gravityScale = gravJumpFactor;
 
-        bool jumpSignal = vtDir > 0.0f || jumping != 0.0f;
+        bool movingDown = vtDir < 0.0f;
+        bool movingUp = vtDir > 0.0f;
+        bool jumpSignal = movingUp || jumping != 0.0f;
         bool grounded = IsGrounded();
 
         if (grounded)
@@ -157,13 +169,13 @@ public class Player : MonoBehaviour
             hasJumpedSinceGrounded = true;
         }
 
-        if (rb2d.linearVelocityY < 0.0f && !grounded)
+        if ((rb2d.linearVelocityY < 0.0f || movingDown) && !grounded)
         {
             isFalling = true;
-            rb2d.gravityScale = gravFallFactor + (vtDir < 0.0f ? 2.5f : 0.0f);
+            rb2d.gravityScale = gravFallFactor + (movingDown ? 2.5f : 0.0f);
         }
 
-        baseColor = (vtDir < 0.0f && !grounded) ? Color.lightBlue : Color.white;
+        baseColor = (movingDown && !grounded) ? Color.lightBlue : Color.white;
 
         animator.SetBool("estaCayendo", isFalling);
     }
