@@ -15,14 +15,12 @@ public class GameManager : MonoBehaviour
     public GameObject meta;
     public Slider avanceJugador;
     public InputActionReference pauseControl;
-    public PlayerInput uiInput;
+    public GameObject btnSgte;
     private Vector3 posInicial;
     private Vector3 posMeta;
     private float distInicial;
     private float tiempoRestante;
-
     private float energia = 100.0f;
-
     private int estrellas = 0;
     private bool pauseToggle = false;
     
@@ -35,6 +33,8 @@ public class GameManager : MonoBehaviour
 
         sldEnergia.SetMaxValue(100.0f);
         sldTiempo.SetMaxValue(tiempo);
+        
+        btnSgte.SetActive(false);
     }
 
     void Update()
@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         CalculateStars();
         Debug.Log("Estrellas obtenidas: " + estrellas);
+        // Invoke("LoadLevel", 5.0f);
+        btnSgte.SetActive(true);
     }
 
     public float GetRemainingTime()
@@ -75,11 +77,15 @@ public class GameManager : MonoBehaviour
         return tiempoRestante;
     }
 
-    public void ReloadScene()
+    public void RedoLevel()
     {
-        uiInput.gameObject.SetActive(false);
-        jugador.GetComponent<Player>().DisablePlayer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadLevel(string name)
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(name);
     }
 
     private void CalculateStars()

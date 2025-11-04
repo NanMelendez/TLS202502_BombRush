@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     public InputActionReference playerControls;
     public InputActionReference playerJumpControl;
     public InputActionReference playerSprintControl;
-    public PlayerInput playerInput;
     public Animator animator;
     public SpriteRenderer slimeRenderer;
     public GameManager gm;
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
     private int velMod;
     private bool hasJumpedSinceGrounded;
     private Color baseColor;
-    private bool gamePausedOrOver = false;
+    private bool gamePausedOrOver;
 
     void Start()
     {
@@ -38,16 +37,35 @@ public class Player : MonoBehaviour
         isFalling = true;
         slimeRenderer.enabled = false;
         baseColor = Color.white;
+        gamePausedOrOver = false;
+    }
+
+    void OnEnable()
+    {
+        playerControls.action.Enable();
+        playerJumpControl.action.Enable();
+        playerSprintControl.action.Enable();
+    }
+
+    void OnDisable()
+    {
+        playerControls.action.Disable();
+        playerJumpControl.action.Disable();
+        playerSprintControl.action.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log("Hello!");
         if (!gamePausedOrOver)
         {
+            // Debug.Log("Hello!");
             Vector2 direction = playerControls.action.ReadValue<Vector2>();
             float jumpBtn = playerJumpControl.action.ReadValue<float>();
             float sprintBtn = playerSprintControl.action.ReadValue<float>();
+
+            // Debug.Log("Direction: " + direction + " Jump: " + jumpBtn + " Sprint: " + sprintBtn);
 
             HorizontalMovement(Mathf.Round(direction.x), sprintBtn);
             VerticalMovement(Mathf.Round(direction.y), jumpBtn);
@@ -97,11 +115,6 @@ public class Player : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position - transform.up * groundcheckCastDistance, groundcheckSize);
         Gizmos.DrawWireCube(transform.position + transform.right * transform.localScale.x * wallcheckCastDistance, wallcheckSize);
-    }
-
-    public void DisablePlayer()
-    {
-        playerInput.gameObject.SetActive(false);
     }
 
     bool IsGrounded()

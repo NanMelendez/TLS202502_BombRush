@@ -189,14 +189,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2810121485019259169, guid: d440a6cab485af740b9e416ab786af14, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810121485019259169, guid: d440a6cab485af740b9e416ab786af14, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 3316337680561736886, guid: d440a6cab485af740b9e416ab786af14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2035595271}
     - target: {fileID: 3984565727119380059, guid: d440a6cab485af740b9e416ab786af14, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1570,6 +1566,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &310139926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4583741104306409749, guid: d440a6cab485af740b9e416ab786af14, type: 3}
+  m_PrefabInstance: {fileID: 180804516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &669922001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,9 +3500,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1709289981}
     - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: tiempo
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: btnSgte
+      value: 
+      objectReference: {fileID: 310139926}
+    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1642520040}
+    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: sgteNivel
+      value: Level 1
+      objectReference: {fileID: 0}
     - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: sldTiempo
       value: 
@@ -3514,9 +3527,17 @@ PrefabInstance:
       propertyPath: avanceJugador
       value: 
       objectReference: {fileID: 180804519}
+    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: ratioPerdidaEnergia
+      value: 7.625
+      objectReference: {fileID: 0}
     - target: {fileID: 4166375554952995518, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4166375554952995518, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4905513292054484749, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: m_LocalPosition.x
