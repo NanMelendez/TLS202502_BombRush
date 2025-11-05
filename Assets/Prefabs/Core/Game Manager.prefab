@@ -45,15 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31a610ca846c2a4e83fe012866eefb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  tiempo: 50
+  tiempo: 25
   sldTiempo: {fileID: 0}
-  ratioPerdidaEnergia: 2.5
+  ratioPerdidaEnergia: 7.625
   sldEnergia: {fileID: 0}
   jugador: {fileID: 0}
   meta: {fileID: 0}
   avanceJugador: {fileID: 0}
   pauseControl: {fileID: -1463786514887460027, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
-  uiInput: {fileID: 2411823896722863901}
+  btnSgte: {fileID: 0}
+  btnCerrar: {fileID: 0}
 --- !u!114 &2411823896722863901
 MonoBehaviour:
   m_ObjectHideFlags: 0

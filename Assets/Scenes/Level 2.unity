@@ -249,6 +249,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6399491135448679468, guid: d440a6cab485af740b9e416ab786af14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2035595271}
     - target: {fileID: 9170471400576813101, guid: d440a6cab485af740b9e416ab786af14, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3500,10 +3504,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1709289981}
     - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
-      propertyPath: tiempo
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: btnSgte
       value: 
       objectReference: {fileID: 310139926}
@@ -3512,9 +3512,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1642520040}
     - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
-      propertyPath: sgteNivel
-      value: Level 1
-      objectReference: {fileID: 0}
+      propertyPath: btnCerrar
+      value: 
+      objectReference: {fileID: 2015764301}
     - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: sldTiempo
       value: 
@@ -3527,17 +3527,9 @@ PrefabInstance:
       propertyPath: avanceJugador
       value: 
       objectReference: {fileID: 180804519}
-    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
-      propertyPath: ratioPerdidaEnergia
-      value: 7.625
-      objectReference: {fileID: 0}
     - target: {fileID: 4166375554952995518, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: m_Name
       value: Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4166375554952995518, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4905513292054484749, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4210,6 +4202,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 41240164800659701, guid: 2e52244344112b04b9b5d3dd5446cb2b, type: 3}
   m_PrefabInstance: {fileID: 1924335826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2015764301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3452905716097507372, guid: d440a6cab485af740b9e416ab786af14, type: 3}
+  m_PrefabInstance: {fileID: 180804516}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2031859116
 GameObject:

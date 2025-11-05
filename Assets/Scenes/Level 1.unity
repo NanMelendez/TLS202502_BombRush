@@ -313,6 +313,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 211538673}
     - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: tiempo
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: btnSgte
       value: 
       objectReference: {fileID: 9109248341961403320}
@@ -320,6 +324,10 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1120568341}
+    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: btnCerrar
+      value: 
+      objectReference: {fileID: 9109248341961403321}
     - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: sgteNivel
       value: Level 1
@@ -336,6 +344,10 @@ PrefabInstance:
       propertyPath: avanceJugador
       value: 
       objectReference: {fileID: 1095241327}
+    - target: {fileID: 844709466944052435, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: ratioPerdidaEnergia
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4166375554952995518, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: m_Name
       value: Game Manager
@@ -14464,6 +14476,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 814627195}
+    - target: {fileID: 3316337680561736886, guid: d440a6cab485af740b9e416ab786af14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3984565727119380059, guid: d440a6cab485af740b9e416ab786af14, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -14520,6 +14536,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6399491135448679468, guid: d440a6cab485af740b9e416ab786af14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 814627195}
     - target: {fileID: 9170471400576813101, guid: d440a6cab485af740b9e416ab786af14, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -14536,6 +14556,11 @@ PrefabInstance:
 --- !u!1 &9109248341961403320 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4583741104306409749, guid: d440a6cab485af740b9e416ab786af14, type: 3}
+  m_PrefabInstance: {fileID: 9109248341961403319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9109248341961403321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3452905716097507372, guid: d440a6cab485af740b9e416ab786af14, type: 3}
   m_PrefabInstance: {fileID: 9109248341961403319}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
