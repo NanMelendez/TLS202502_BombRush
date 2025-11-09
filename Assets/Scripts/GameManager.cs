@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
         distInicial = Vector2.Distance(posInicial, posMeta);
         tiempoRestante = tiempo;
 
-        sldEnergia.SetMaxValue(100.0f);
-        sldTiempo.SetMaxValue(tiempo);
+        sldEnergia.MaxValue = 100.0f;
+        sldTiempo.MaxValue = tiempo;
 
         btnSgte.SetActive(false);
         btnCerrar.SetActive(false);
@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
         float pauseBtn = pauseControl.action.ReadValue<float>();
         pauseToggle ^= pauseBtn != 0.0f;
 
-        sldTiempo.SetValue(tiempoRestante);
-        sldEnergia.SetValue(energia);
+        sldTiempo.Value = tiempoRestante;
+        sldEnergia.Value = energia;
 
         CountdownLogic();
         EnergyLossLogic();
@@ -56,13 +56,13 @@ public class GameManager : MonoBehaviour
     public void AddEnergy(float e)
     {
         energia = Mathf.Min(energia + e, 100.0f);
-        sldEnergia.SetValue(energia);
+        sldEnergia.Value = energia;
     }
 
     public void AddTime(float t)
     {
         tiempoRestante = Mathf.Min(tiempoRestante + t, tiempo);
-        sldTiempo.SetValue(tiempoRestante);
+        sldTiempo.Value = tiempoRestante;
     }
 
     public void Win()

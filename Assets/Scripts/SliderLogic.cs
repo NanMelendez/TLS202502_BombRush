@@ -4,40 +4,57 @@ using UnityEngine.UI;
 
 public class SliderLogic : MonoBehaviour
 {
-    public Slider slider;
-    public Gradient gradient;
-    public Image fill;
-    public TextMeshProUGUI tmpText;
+    [SerializeField]
+    private Slider slider;
+    [SerializeField]
+    private Gradient gradient;
+    [SerializeField]
+    private Image fill;
+    [SerializeField]
+    private TextMeshProUGUI text;
 
-    public void SetMaxValue(float mxVal)
+    public float Value
     {
-        slider.maxValue = mxVal;
-        slider.value = mxVal;
-        fill.color = gradient.Evaluate(1.0f);
-        SetText();
+        get
+        {
+            return slider.value;
+        }
+        set
+        {
+            slider.value = value;
+            fill.color = gradient.Evaluate(slider.normalizedValue);
+            SetText();
+        }
     }
 
-    public void SetValue(float value)
+    public float MaxValue
     {
-        slider.value = value;
-        fill.color = gradient.Evaluate(slider.normalizedValue);
-        SetText();
+        get
+        {
+            return slider.maxValue;
+        }
+        set
+        {
+            slider.maxValue = value;
+            slider.value = value;
+            fill.color = gradient.Evaluate(1.0f);
+            SetText();
+        }
     }
 
     private void SetText()
     {
-        if (tmpText != null)
+        if (text != null)
         {
-            if (CompareTag("Energy"))
-                tmpText.text = string.Format("{0}%", Mathf.Round(slider.value));
-            else if (CompareTag("Time"))
+            if (CompareTag("Time"))
             {
-                int minutes = Mathf.FloorToInt(slider.value / 60.0f);
-                int seconds = Mathf.FloorToInt(slider.value % 60.0f);
-                tmpText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+                int minutes = Mathf.FloorToInt(Value / 60.0f);
+                int seconds = Mathf.FloorToInt(Value % 60.0f);
+                text.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+                return;
             }
-            else
-                tmpText.text = slider.value.ToString();
+
+            text.text = Value.ToString();
         }
     }
 }

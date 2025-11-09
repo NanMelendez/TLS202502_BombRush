@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4905513292054484749}
-  - component: {fileID: 844709466944052435}
   - component: {fileID: 2411823896722863901}
+  - component: {fileID: 6410953161612063101}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -33,28 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &844709466944052435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4166375554952995518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f31a610ca846c2a4e83fe012866eefb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  tiempo: 25
-  sldTiempo: {fileID: 0}
-  ratioPerdidaEnergia: 7.625
-  sldEnergia: {fileID: 0}
-  jugador: {fileID: 0}
-  meta: {fileID: 0}
-  avanceJugador: {fileID: 0}
-  pauseControl: {fileID: -1463786514887460027, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
-  btnSgte: {fileID: 0}
-  btnCerrar: {fileID: 0}
 --- !u!114 &2411823896722863901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,3 +63,21 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6410953161612063101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166375554952995518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e7b4c1f67987b459d508a5a811fa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager2
+  interfazJuego: {fileID: 0}
+  interfazPausa: {fileID: 0}
+  interfazVictoria: {fileID: 0}
+  interfazDerrota: {fileID: 0}
+  tiempo: 75
+  controlPausa: {fileID: -1463786514887460027, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}

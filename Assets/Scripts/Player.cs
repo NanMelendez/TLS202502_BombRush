@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public InputActionReference playerSprintControl;
     public Animator animator;
     public SpriteRenderer slimeRenderer;
-    public GameManager gm;
+    public GameManager2 gm;
     private bool isFalling;
     private bool isSliding;
     private int velMod;
@@ -53,33 +53,28 @@ public class Player : MonoBehaviour
         playerJumpControl.action.Disable();
         playerSprintControl.action.Disable();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        // Debug.Log("Hello!");
         if (!gamePausedOrOver)
         {
-            // Debug.Log("Hello!");
             Vector2 direction = playerControls.action.ReadValue<Vector2>();
             float jumpBtn = playerJumpControl.action.ReadValue<float>();
             float sprintBtn = playerSprintControl.action.ReadValue<float>();
 
-            // Debug.Log("Direction: " + direction + " Jump: " + jumpBtn + " Sprint: " + sprintBtn);
-
             HorizontalMovement(Mathf.Round(direction.x), sprintBtn);
             VerticalMovement(Mathf.Round(direction.y), jumpBtn);
 
-            if (gm.GetRemainingTime() < 30.0f)
+            if (gm.TiempoRestante < 30.0f)
             {
-                float freq = gm.GetRemainingTime() > 20.0f ? 2.0f : (gm.GetRemainingTime() > 10.0f ? 5.0f : 20.0f);
+                float freq = gm.TiempoRestante > 20.0f ? 2.0f : (gm.TiempoRestante > 10.0f ? 5.0f : 20.0f);
 
                 playerRenderer.color = Color.Lerp(baseColor, Color.red, 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
             }
             else
                 playerRenderer.color = baseColor;
 
-            if (gm.GetRemainingTime() == 0.0f)
+            if (gm.TiempoRestante == 0.0f)
             {
                 animator.SetTrigger("tiempoTerminado");
             }
@@ -91,13 +86,13 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("pickTime"))
         {
             Destroy(collision.gameObject);
-            gm.AddTime(10.0f);
+            gm.MasTiempo(10.0f);
         }
 
         if (collision.gameObject.CompareTag("pickEnergy"))
         {
             Destroy(collision.gameObject);
-            gm.AddEnergy(25.0f);
+            gm.MasEnergia(25.0f);
         }
 
         if (collision.gameObject.CompareTag("Goal"))
@@ -106,7 +101,7 @@ public class Player : MonoBehaviour
             {
                 collision.enabled = false;
                 gamePausedOrOver = true;
-                gm.Win();
+                gm.Victoria();
             }
         }
     }
