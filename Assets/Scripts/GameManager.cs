@@ -1,126 +1,141 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [Tooltip("Cuenta regresiva en segundos antes de que el jugador explote")]
+    public GameUI interfazJuego;
+    public GameObject interfazPausa;
+    public GameObject interfazVictoria;
+    public GameObject interfazDerrota;
     public float tiempo;
-    public SliderLogic sldTiempo;
-    public float ratioPerdidaEnergia;
-    public SliderLogic sldEnergia;
-    public GameObject jugador;
-    public GameObject meta;
-    public Slider avanceJugador;
-    public InputActionReference pauseControl;
-    public GameObject btnSgte;
-    public GameObject btnCerrar;
-    private Vector3 posInicial;
-    private Vector3 posMeta;
-    private float distInicial;
-    private float tiempoRestante;
-    private float energia = 100.0f;
-    private int estrellas = 0;
-    private bool pauseToggle = false;
-    
+
+    public InputActionReference controlPausa;
+    private bool pausa = false;
+    private int siguienteNivel;
+
+    public float TiempoRestante
+    {
+        get
+        {
+            return interfazJuego.RemainingTime;
+        }
+        set
+        {
+            interfazJuego.RemainingTime = value;
+        }
+    }
+
+    public float EnergiaRestante
+    {
+        get
+        {
+            return interfazJuego.RemainingEnergy;
+        }
+        set
+        {
+            interfazJuego.RemainingEnergy = value;
+        }
+    }
+
+    public float TiempoLimite
+    {
+        get
+        {
+            return interfazJuego.MaxTime;
+        }
+        set
+        {
+            interfazJuego.MaxTime = value;
+        }
+    }
+
+    public float EnergiaLimite
+    {
+        get
+        {
+            return interfazJuego.MaxEnergy;
+        }
+        set
+        {
+            interfazJuego.MaxEnergy = value;
+        }
+    }
+
     void Start()
     {
-        posInicial = jugador.transform.position;
-        posMeta = meta.transform.position;
-        distInicial = Vector2.Distance(posInicial, posMeta);
-        tiempoRestante = tiempo;
+        Time.timeScale = 1.0f;
+        
+        TiempoLimite = tiempo;
+        EnergiaLimite = 100.0f;
 
-        sldEnergia.MaxValue = 100.0f;
-        sldTiempo.MaxValue = tiempo;
+        interfazPausa.SetActive(false);
+        interfazVictoria.SetActive(false);
+        interfazDerrota.SetActive(false);
 
-        btnSgte.SetActive(false);
-        btnCerrar.SetActive(false);
+        siguienteNivel = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     void Update()
     {
-        float pauseBtn = pauseControl.action.ReadValue<float>();
-        pauseToggle ^= pauseBtn != 0.0f;
+        float pausa = controlPausa.action.ReadValue<float>();
 
-        sldTiempo.Value = tiempoRestante;
-        sldEnergia.Value = energia;
-
-        CountdownLogic();
-        EnergyLossLogic();
-
-        avanceJugador.value = Mathf.Clamp(1.0f - Vector2.Distance(jugador.transform.position, posMeta) / distInicial, 0.0f, 1.0f);
+        CuentaRegresiva();
     }
 
-    public void AddEnergy(float e)
+    private void CuentaRegresiva()
     {
-        energia = Mathf.Min(energia + e, 100.0f);
-        sldEnergia.Value = energia;
+        if (TiempoRestante > 0.0f)
+            TiempoRestante -= Time.deltaTime;
+
+        if (TiempoRestante < 0.0f)
+            TiempoRestante = 0.0f;
     }
 
-    public void AddTime(float t)
+    public void MasTiempo(float t)
     {
-        tiempoRestante = Mathf.Min(tiempoRestante + t, tiempo);
-        sldTiempo.Value = tiempoRestante;
+        TiempoRestante = Mathf.Min(TiempoRestante + t, TiempoLimite);
+    }
+    
+    public void MasEnergia(float e)
+    {
+        EnergiaRestante = Mathf.Min(EnergiaRestante + e, EnergiaLimite);
     }
 
-    public void Win()
+    public void Pausa()
+    {
+        interfazPausa.SetActive(true);
+    }
+
+    public void Victoria()
     {
         Time.timeScale = 0.0f;
-        CalculateStars();
-        Debug.Log("Estrellas obtenidas: " + estrellas);
-        btnSgte.SetActive(true);
-        btnCerrar.SetActive(true);
+        interfazJuego.gameObject.SetActive(false);
+        interfazVictoria.SetActive(true);
     }
 
-    public float GetRemainingTime()
+    public void Derrota()
     {
-        return tiempoRestante;
+        Time.timeScale = 0.0f;
+        interfazJuego.gameObject.SetActive(false);
+        interfazDerrota.SetActive(true);
     }
 
-    public void RedoLevel()
+    public void Reiniciar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void LoadLevel(string name)
+    public void RegresarSelector()
     {
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene(name);
+        SceneManager.LoadScene("Selector Niveles");
     }
 
-    public void CloseGame() {
-        Application.Quit();
-    }
-
-    private void CalculateStars()
+    public void SiguienteNivel(int n)
     {
-        if (energia > 75.0f)
-            estrellas = 3;
-        else if (energia > 50.0f)
-            estrellas = 2;
-        else if (energia > 25.0f)
-            estrellas = 1;
-        else
-            estrellas = 0;
-    }
+        if (siguienteNivel == 3)
+            RegresarSelector();
 
-    private void CountdownLogic()
-    {
-        if (tiempoRestante > 0.0f)
-            tiempoRestante -= Time.deltaTime;
-
-        if (tiempoRestante < 0.0f)
-            tiempoRestante = 0.0f;
-    }
-
-    private void EnergyLossLogic()
-    {
-        if (energia > 0.0f)
-            energia -= ratioPerdidaEnergia * Time.deltaTime;
-
-        if (energia < 0.0f)
-            energia = 0.0f;
+        SceneManager.LoadScene(siguienteNivel);
     }
 }

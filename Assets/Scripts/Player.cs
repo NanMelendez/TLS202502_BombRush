@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public InputActionReference playerSprintControl;
     public Animator animator;
     public SpriteRenderer slimeRenderer;
-    public GameManager2 gm;
+    public GameManager gm;
     private bool isFalling;
     private bool isSliding;
     private int velMod;
