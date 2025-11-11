@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float jumpSpeed;
     public float slideSpeed;
     public Rigidbody2D rb2d;
-    public float gravJumpFactor;
+    public float baseGravity;
     public float gravFallFactor;
     public Vector2 wallcheckSize;
     public float wallcheckCastDistance;
@@ -156,8 +156,7 @@ public class Player : MonoBehaviour
 
     private void VerticalMovement(float vtDir, float jumping)
     {
-        rb2d.gravityScale = gravJumpFactor;
-
+        rb2d.gravityScale = baseGravity;
         bool movingDown = vtDir < 0.0f;
         bool movingUp = vtDir > 0.0f;
         bool jumpSignal = movingUp || jumping != 0.0f;
@@ -180,11 +179,16 @@ public class Player : MonoBehaviour
         if ((rb2d.linearVelocityY < 0.0f || movingDown) && !grounded)
         {
             isFalling = true;
-            rb2d.gravityScale = gravFallFactor + (movingDown ? 2.5f : 0.0f);
+            rb2d.gravityScale = baseGravity + gravFallFactor + (movingDown ? 3.5f : 0.0f);
         }
 
         baseColor = (movingDown && !grounded) ? Color.lightBlue : Color.white;
 
         animator.SetBool("estaCayendo", isFalling);
+    }
+
+    public bool IsSliding()
+    {
+        return isSliding;
     }
 }

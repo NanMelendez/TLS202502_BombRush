@@ -100,9 +100,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6614499911395236522}
   - component: {fileID: 3217196323975899876}
-  - component: {fileID: 6911206868144316122}
   - component: {fileID: 832119325236535490}
+  - component: {fileID: 6911206868144316122}
   - component: {fileID: 784757805107093282}
+  - component: {fileID: 1254412654432142678}
   - component: {fileID: 8301691657924511142}
   - component: {fileID: 1044034071486622000}
   m_Layer: 0
@@ -187,33 +188,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6911206868144316122
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5365730911601309850}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1.25
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1.5
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &832119325236535490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -260,6 +234,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.66, y: 1.6001278}
   m_EdgeRadius: 0
+--- !u!50 &6911206868144316122
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365730911601309850}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1.25
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1.5
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &784757805107093282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,10 +275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerRenderer: {fileID: 3217196323975899876}
   speed: 10
-  jumpSpeed: 12.5
+  jumpSpeed: 20
   slideSpeed: 2
   rb2d: {fileID: 6911206868144316122}
-  gravJumpFactor: 1.5
+  baseGravity: 3
   gravFallFactor: 3.5
   wallcheckSize: {x: 0.05, y: 1.25}
   wallcheckCastDistance: 0.825
@@ -295,6 +296,26 @@ MonoBehaviour:
   animator: {fileID: 1044034071486622000}
   slimeRenderer: {fileID: 3783991568066793601}
   gm: {fileID: 0}
+--- !u!114 &1254412654432142678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365730911601309850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4445fb7c81dc5489ab9f06633a8081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallDamage
+  fallTimeThreshold: 2
+  fallSpeedThreshold: -10
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  damageMultiplier: 2.25
+  gm: {fileID: 0}
+  player: {fileID: 784757805107093282}
 --- !u!114 &8301691657924511142
 MonoBehaviour:
   m_ObjectHideFlags: 0
