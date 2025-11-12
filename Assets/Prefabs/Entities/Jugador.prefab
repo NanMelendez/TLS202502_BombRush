@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &574556800378112223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7597439115835670426}
+  - component: {fileID: 1892755760909666184}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7597439115835670426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574556800378112223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.68, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6614499911395236522}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1892755760909666184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574556800378112223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a796be2a1a7444d9fd314eff8497a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurfaceCheck
+  size: {x: 1.45, y: 0.08}
+  direction: {x: 0, y: -1}
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &922114750691729206
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,12 +153,14 @@ GameObject:
   - component: {fileID: 6911206868144316122}
   - component: {fileID: 784757805107093282}
   - component: {fileID: 1254412654432142678}
+  - component: {fileID: 5297353923241379447}
+  - component: {fileID: 9193809786198238686}
   - component: {fileID: 8301691657924511142}
   - component: {fileID: 1044034071486622000}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -128,6 +179,8 @@ Transform:
   m_Children:
   - {fileID: 1206168567968682896}
   - {fileID: 5340777591952406262}
+  - {fileID: 7597439115835670426}
+  - {fileID: 7422186427013244299}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3217196323975899876
@@ -273,26 +326,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0417bc36418361e468d2579fbc1fabd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  playerRenderer: {fileID: 3217196323975899876}
   speed: 10
   jumpSpeed: 20
   slideSpeed: 2
   rb2d: {fileID: 6911206868144316122}
   baseGravity: 3
   gravFallFactor: 2.5
-  wallcheckSize: {x: 0.05, y: 1.25}
-  wallcheckCastDistance: 0.825
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  groundcheckSize: {x: 1.6, y: 0.05}
-  groundcheckCastDistance: 0.68
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  playerControls: {fileID: 8793659846076776340, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
-  playerJumpControl: {fileID: -7605621389634730764, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
-  playerSprintControl: {fileID: -8057222564235011905, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
+  wallCheck: {fileID: 7642343678684008646}
+  groundCheck: {fileID: 1892755760909666184}
+  gameInputs: {fileID: 9193809786198238686}
   animator: {fileID: 1044034071486622000}
   slimeRenderer: {fileID: 3783991568066793601}
   gm: {fileID: 0}
@@ -316,6 +358,39 @@ MonoBehaviour:
   damageMultiplier: 2.25
   gm: {fileID: 0}
   player: {fileID: 784757805107093282}
+--- !u!114 &5297353923241379447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365730911601309850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b255880f767b75489f22ac3bc2ed5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerColoring
+  sprite: {fileID: 3217196323975899876}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  dangerColor: {r: 1, g: 0, b: 0, a: 1}
+  forcedFallColor: {r: 0.18993942, g: 0.5063129, b: 0.97735846, a: 1}
+  player: {fileID: 784757805107093282}
+  gm: {fileID: 0}
+--- !u!114 &9193809786198238686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365730911601309850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6f8f8776f4ab2438206f73eea30aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameInputs
+  wasdControl: {fileID: 8793659846076776340, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
+  spaceControl: {fileID: -7605621389634730764, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
+  lshiftControl: {fileID: -8057222564235011905, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
 --- !u!114 &8301691657924511142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,3 +556,52 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &7810392675789890180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7422186427013244299}
+  - component: {fileID: 7642343678684008646}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7422186427013244299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810392675789890180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.825, y: 0.148, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6614499911395236522}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7642343678684008646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810392675789890180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a796be2a1a7444d9fd314eff8497a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurfaceCheck
+  size: {x: 0.07, y: 1.2}
+  direction: {x: 0, y: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 8

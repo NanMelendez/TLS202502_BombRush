@@ -5,22 +5,15 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public SpriteRenderer playerRenderer;
     public float speed;
     public float jumpSpeed;
     public float slideSpeed;
     public Rigidbody2D rb2d;
     public float baseGravity;
     public float gravFallFactor;
-    public Vector2 wallcheckSize;
-    public float wallcheckCastDistance;
-    public LayerMask wallLayer;
-    public Vector2 groundcheckSize;
-    public float groundcheckCastDistance;
-    public LayerMask groundLayer;
-    public InputActionReference playerControls;
-    public InputActionReference playerJumpControl;
-    public InputActionReference playerSprintControl;
+    public SurfaceCheck wallCheck;
+    public SurfaceCheck groundCheck;
+    public GameInputs gameInputs;
     public Animator animator;
     public SpriteRenderer slimeRenderer;
     public GameManager gm;
@@ -28,7 +21,6 @@ public class Player : MonoBehaviour
     private bool isSliding;
     private int velMod;
     private bool hasJumpedSinceGrounded;
-    private Color baseColor;
     private bool gamePausedOrOver;
 
     void Start()
@@ -36,43 +28,15 @@ public class Player : MonoBehaviour
         isSliding = false;
         isFalling = true;
         slimeRenderer.enabled = false;
-        baseColor = Color.white;
         gamePausedOrOver = false;
     }
 
-    void OnEnable()
-    {
-        playerControls.action.Enable();
-        playerJumpControl.action.Enable();
-        playerSprintControl.action.Enable();
-    }
-
-    void OnDisable()
-    {
-        playerControls.action.Disable();
-        playerJumpControl.action.Disable();
-        playerSprintControl.action.Disable();
-    }
-    
     void Update()
     {
         if (!gamePausedOrOver)
         {
-            Vector2 direction = playerControls.action.ReadValue<Vector2>();
-            float jumpBtn = playerJumpControl.action.ReadValue<float>();
-            float sprintBtn = playerSprintControl.action.ReadValue<float>();
-
-            HorizontalMovement(Mathf.Round(direction.x), sprintBtn);
-            VerticalMovement(Mathf.Round(direction.y), jumpBtn);
-
-            if (gm.TiempoRestante < 30.0f)
-            {
-                float freq = gm.TiempoRestante > 20.0f ? 2.0f : (gm.TiempoRestante > 10.0f ? 5.0f : 20.0f);
-
-                playerRenderer.color = Color.Lerp(baseColor, Color.red, 0.5f + 0.5f * Mathf.Sin(freq * Time.time));
-            }
-            else
-                playerRenderer.color = baseColor;
+            HorizontalMovement();
+            VerticalMovement();
 
             if (gm.TiempoRestante == 0.0f)
             {
@@ -106,35 +70,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+    public bool IsGrounded()
     {
-        Gizmos.DrawWireCube(transform.position - transform.up * groundcheckCastDistance, groundcheckSize);
-        Gizmos.DrawWireCube(transform.position + transform.right * transform.localScale.x * wallcheckCastDistance, wallcheckSize);
-    }
-
-    bool IsGrounded()
-    {
-        return Physics2D.BoxCast(transform.position, groundcheckSize, 0, -transform.up, groundcheckCastDistance, groundLayer);
+        return groundCheck.IsColliding();
     }
 
     bool IsHittingWall()
     {
-        return Physics2D.BoxCast(transform.position, wallcheckSize, 0, transform.right * transform.localScale.x, wallcheckCastDistance, wallLayer);
+        return wallCheck.IsColliding();
     }
 
-    private void HorizontalMovement(float hzDir, float sprint)
+    private void HorizontalMovement()
     {
         float sprintFactor = 1.0f;
 
         velMod = 0;
         isSliding = false;
 
-        if (hzDir != 0.0f)
+        if (gameInputs.IsMovingHorizontally())
         {
-            transform.localScale = new Vector3(hzDir, 1.0f, 1.0f);
+            transform.localScale = new Vector3(gameInputs.Direction.x, 1.0f, 1.0f);
             velMod = 1;
 
-            if (sprint > 0.0f)
+            if (gameInputs.IsSprinting())
             {
                 sprintFactor = 1.5f;
                 velMod = 2;
@@ -149,17 +107,16 @@ public class Player : MonoBehaviour
 
         slimeRenderer.enabled = isSliding;
 
-        rb2d.linearVelocityX = hzDir * speed * sprintFactor;
+        rb2d.linearVelocityX = gameInputs.Direction.x * speed * sprintFactor;
         animator.SetInteger("velMod", velMod);
         animator.SetBool("estaDeslizando", isSliding);
     }
 
-    private void VerticalMovement(float vtDir, float jumping)
+    private void VerticalMovement()
     {
         rb2d.gravityScale = baseGravity;
-        bool movingDown = vtDir < 0.0f;
-        bool movingUp = vtDir > 0.0f;
-        bool jumpSignal = movingUp || jumping != 0.0f;
+        bool isForcingFall = gameInputs.IsPressingDown();
+        bool isJumping = gameInputs.IsPressingUp() || gameInputs.IsPressingSpace();
         bool grounded = IsGrounded();
 
         if (grounded)
@@ -168,7 +125,7 @@ public class Player : MonoBehaviour
             isFalling = false;
         }
 
-        if (grounded && jumpSignal && !hasJumpedSinceGrounded)
+        if (grounded && isJumping && !hasJumpedSinceGrounded)
         {
             rb2d.linearVelocityY = 0.0f;
             rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
@@ -176,13 +133,11 @@ public class Player : MonoBehaviour
             hasJumpedSinceGrounded = true;
         }
 
-        if ((rb2d.linearVelocityY < 0.0f || movingDown) && !grounded)
+        if ((rb2d.linearVelocityY < 0.0f || isForcingFall) && !grounded)
         {
             isFalling = true;
-            rb2d.gravityScale = baseGravity + gravFallFactor + (movingDown ? 3.5f : 0.0f);
+            rb2d.gravityScale = baseGravity + gravFallFactor + (isForcingFall ? 3.5f : 0.0f);
         }
-
-        baseColor = (movingDown && !grounded) ? Color.lightBlue : Color.white;
 
         animator.SetBool("estaCayendo", isFalling);
     }
