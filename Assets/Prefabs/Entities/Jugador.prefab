@@ -259,7 +259,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &784757805107093282
 MonoBehaviour:
@@ -279,7 +279,7 @@ MonoBehaviour:
   slideSpeed: 2
   rb2d: {fileID: 6911206868144316122}
   baseGravity: 3
-  gravFallFactor: 3.5
+  gravFallFactor: 2.5
   wallcheckSize: {x: 0.05, y: 1.25}
   wallcheckCastDistance: 0.825
   wallLayer:
