@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
         if ((rb2d.linearVelocityY < 0.0f || isForcingFall) && !grounded)
         {
             isFalling = true;
-            rb2d.gravityScale = baseGravity + gravFallFactor + (isForcingFall ? 3.5f : 0.0f);
+            rb2d.gravityScale = baseGravity /*+ gravFallFactor*/ + (isForcingFall ? 3.5f : 0.0f);
         }
 
         animator.SetBool("estaCayendo", isFalling);

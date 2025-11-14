@@ -1,5 +1,7 @@
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class GameInputs : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class GameInputs : MonoBehaviour
     private InputActionReference lshiftControl;
     [SerializeField]
     private InputActionReference escControl;
+    [SerializeField]
+    private GameManager gm;
 
     private Vector2 direction;
     private float hzValue;
@@ -25,6 +29,7 @@ public class GameInputs : MonoBehaviour
         spaceControl.action.Enable();
         lshiftControl.action.Enable();
         escControl.action.Enable();
+        escControl.action.started += ChangePauseStateCallback;
     }
 
     void OnDisable()
@@ -33,6 +38,7 @@ public class GameInputs : MonoBehaviour
         spaceControl.action.Disable();
         lshiftControl.action.Disable();
         escControl.action.Disable();
+        escControl.action.started -= ChangePauseStateCallback;
     }
 
     public Vector2 Direction
@@ -51,6 +57,12 @@ public class GameInputs : MonoBehaviour
         spaceValue = spaceControl.action.ReadValue<float>();
         sprintValue = lshiftControl.action.ReadValue<float>();
         escValue = escControl.action.ReadValue<float>();
+    }
+
+    private void ChangePauseStateCallback(InputAction.CallbackContext context)
+    {
+        if (context.interaction is PressInteraction)
+            gm.EstadoPausa = !gm.EstadoPausa;
     }
 
     public bool IsMovingHorizontally()

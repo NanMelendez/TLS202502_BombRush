@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -9,8 +10,6 @@ public class GameManager : MonoBehaviour
     public GameObject interfazVictoria;
     public GameObject interfazDerrota;
     public float tiempo;
-
-    public InputActionReference controlPausa;
     private bool pausa = false;
     private int siguienteNivel;
 
@@ -62,6 +61,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool EstadoPausa
+    {
+        get
+        {
+            return pausa;
+        }
+        set
+        {
+            pausa = value;
+            if (pausa)
+                Pausa();
+            else
+                Resumir();
+        }
+    }
+
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -78,8 +93,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        float pausa = controlPausa.action.ReadValue<float>();
-
         CuentaRegresiva();
     }
 
@@ -105,6 +118,12 @@ public class GameManager : MonoBehaviour
     public void Pausa()
     {
         interfazPausa.SetActive(true);
+    }
+
+    public void Resumir()
+    {
+        interfazPausa.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     public void Victoria()

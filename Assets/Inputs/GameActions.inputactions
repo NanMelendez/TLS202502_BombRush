@@ -124,7 +124,7 @@
                     "id": "4eb2fa4c-e3ef-4642-826c-616ca71d7db5",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press,Hold",
                     "initialStateCheck": false
                 }
             ],

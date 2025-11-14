@@ -79,5 +79,4 @@ MonoBehaviour:
   interfazPausa: {fileID: 0}
   interfazVictoria: {fileID: 0}
   interfazDerrota: {fileID: 0}
-  tiempo: 75
-  controlPausa: {fileID: -1463786514887460027, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
+  tiempo: 30
