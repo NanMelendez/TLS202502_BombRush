@@ -11,12 +11,17 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb2d;
     public float baseGravity;
     public float gravFallFactor;
-    public SurfaceCheck wallCheck;
-    public SurfaceCheck groundCheck;
+    [SerializeField]
+    private GameObject slime;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private SurfaceCheck wallCheck;
+    [SerializeField]
+    private SurfaceCheck groundCheck;
+    [SerializeField]
+    private GameManager gm;
     public GameInputs gameInputs;
-    public Animator animator;
-    public SpriteRenderer slimeRenderer;
-    public GameManager gm;
     private bool isFalling;
     private bool isSliding;
     private int velMod;
@@ -25,9 +30,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        slime.SetActive(false);
         isSliding = false;
         isFalling = true;
-        slimeRenderer.enabled = false;
         gamePausedOrOver = false;
     }
 
@@ -104,8 +109,7 @@ public class Player : MonoBehaviour
             isSliding = true;
             rb2d.linearVelocityY = -slideSpeed;
         }
-
-        slimeRenderer.enabled = isSliding;
+        slime.SetActive(isSliding);
 
         rb2d.linearVelocityX = gameInputs.Direction.x * speed * sprintFactor;
         animator.SetInteger("velMod", velMod);

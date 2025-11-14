@@ -16,6 +16,6 @@ public class SurfaceCheck : MonoBehaviour
 
     public bool IsColliding()
     {
-        return Physics2D.BoxCast(transform.position, size, 0, direction, 0, layer);
+        return Physics2D.BoxCast(transform.position, size, 0, direction * transform.lossyScale.x, 0, layer);
     }
 }

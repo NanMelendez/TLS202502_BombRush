@@ -9,18 +9,22 @@ public class GameInputs : MonoBehaviour
     private InputActionReference spaceControl;
     [SerializeField]
     private InputActionReference lshiftControl;
+    [SerializeField]
+    private InputActionReference escControl;
 
     private Vector2 direction;
     private float hzValue;
     private float vtValue;
     private float spaceValue;
     private float sprintValue;
+    private float escValue;
 
     void OnEnable()
     {
         wasdControl.action.Enable();
         spaceControl.action.Enable();
         lshiftControl.action.Enable();
+        escControl.action.Enable();
     }
 
     void OnDisable()
@@ -28,6 +32,7 @@ public class GameInputs : MonoBehaviour
         wasdControl.action.Disable();
         spaceControl.action.Disable();
         lshiftControl.action.Disable();
+        escControl.action.Disable();
     }
 
     public Vector2 Direction
@@ -45,6 +50,7 @@ public class GameInputs : MonoBehaviour
         vtValue = direction.y;
         spaceValue = spaceControl.action.ReadValue<float>();
         sprintValue = lshiftControl.action.ReadValue<float>();
+        escValue = escControl.action.ReadValue<float>();
     }
 
     public bool IsMovingHorizontally()
@@ -75,5 +81,10 @@ public class GameInputs : MonoBehaviour
     public bool IsSprinting()
     {
         return sprintValue > 0.0f;
+    }
+
+    public bool IsPressingEscape()
+    {
+        return escValue > 0.0f;
     }
 }

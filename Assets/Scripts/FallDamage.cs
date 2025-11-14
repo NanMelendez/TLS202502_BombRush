@@ -1,7 +1,7 @@
-using System;
-using UnityEditor.Rendering.Universal;
+using Unity.Cinemachine;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class FallDamage : MonoBehaviour
 {
     [SerializeField]
@@ -16,6 +16,7 @@ public class FallDamage : MonoBehaviour
     private GameManager gm;
     [SerializeField]
     private Player player;
+    [SerializeField]
     private Rigidbody2D rb2d;
     private float fallTime = 0;
     private float fallSpeed = 0;
@@ -57,7 +58,6 @@ public class FallDamage : MonoBehaviour
             // Debug.Log("-0.5 * (velY - threshold): " + calc2);
             float totalDamage = damageMultiplier * (calc1 + calc2);
             Debug.Log(string.Format("Perdiste {0:0.00}%", totalDamage));
-            gm.EnergiaRestante -= totalDamage;
         }
 
         if (isGrounded || player.IsSliding())

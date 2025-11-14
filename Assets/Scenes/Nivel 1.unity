@@ -2536,7 +2536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea4f6ad2a037cb44bb32acf1e04f532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameUI
---- !u!1 &1019985854 stripped
+--- !u!1 &1086167226 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5365730911601309850, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
   m_PrefabInstance: {fileID: 2069157388}
@@ -17907,7 +17907,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 57d1fdc713e9154428284671b7e7414e, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -19344,11 +19344,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2764181983218105970, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5580497
+      value: 4.807338
       objectReference: {fileID: 0}
     - target: {fileID: 7236442401739369709, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236442401739369709, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
+      propertyPath: AmplitudeGain
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236442401739369709, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
+      propertyPath: FrequencyGain
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8209144984831198020, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19390,10 +19398,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7236442401739369709, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1227349896154420806, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1737105281}
   m_SourcePrefab: {fileID: 100100000, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
 --- !u!20 &1464700262 stripped
 Camera:
@@ -19467,6 +19479,35 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6944393029196964522, guid: 00caaa2716b8ab94e935c6c18ad11f77, type: 3}
   m_PrefabInstance: {fileID: 211593798126728217}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1737105275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1227349896154420806, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
+  m_PrefabInstance: {fileID: 1464700261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1737105281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737105275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &1806457258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 41240164800659701, guid: 2e52244344112b04b9b5d3dd5446cb2b, type: 3}
@@ -21526,14 +21567,18 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 296750358}
-    - target: {fileID: 784757805107093282, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
-      propertyPath: gameInputs
-      value: 
-      objectReference: {fileID: 2069157399}
     - target: {fileID: 1254412654432142678, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
       propertyPath: gm
       value: 
       objectReference: {fileID: 296750358}
+    - target: {fileID: 1254412654432142678, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
+      propertyPath: shaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254412654432142678, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
+      propertyPath: shakeFrequency
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5297353923241379447, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
       propertyPath: gm
       value: 
@@ -21587,7 +21632,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5365730911601309850, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
-      insertIndex: 7
+      insertIndex: -1
       addedObject: {fileID: 2069157399}
   m_SourcePrefab: {fileID: 100100000, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
 --- !u!4 &2069157389 stripped
@@ -21601,15 +21646,53 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019985854}
+  m_GameObject: {fileID: 1086167226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6f8f8776f4ab2438206f73eea30aae, type: 3}
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameInputs
-  wasdControl: {fileID: 8793659846076776340, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
-  spaceControl: {fileID: -7605621389634730764, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
-  lshiftControl: {fileID: -8057222564235011905, guid: df1e7ddd710a96c4183aece058b236b0, type: 3}
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 2
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 0
+    DissipationRate: 0.25
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!1001 &211593798126728217
 PrefabInstance:
   m_ObjectHideFlags: 0

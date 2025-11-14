@@ -251,7 +251,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bda81e6bdfcac4e44aa32787efc16678, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -332,12 +332,12 @@ MonoBehaviour:
   rb2d: {fileID: 6911206868144316122}
   baseGravity: 3
   gravFallFactor: 2.5
+  slime: {fileID: 922114750691729206}
+  animator: {fileID: 1044034071486622000}
   wallCheck: {fileID: 7642343678684008646}
   groundCheck: {fileID: 1892755760909666184}
-  gameInputs: {fileID: 9193809786198238686}
-  animator: {fileID: 1044034071486622000}
-  slimeRenderer: {fileID: 3783991568066793601}
   gm: {fileID: 0}
+  gameInputs: {fileID: 9193809786198238686}
 --- !u!114 &1254412654432142678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +358,9 @@ MonoBehaviour:
   damageMultiplier: 2.25
   gm: {fileID: 0}
   player: {fileID: 784757805107093282}
+  shaker: {fileID: 0}
+  shakeAmplitude: 2.5
+  shakeFrequency: 1.5
 --- !u!114 &5297353923241379447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,7 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SurfaceCheck
   size: {x: 0.07, y: 1.2}
-  direction: {x: 0, y: 0}
+  direction: {x: 1, y: 0}
   layer:
     serializedVersion: 2
     m_Bits: 8
