@@ -12,6 +12,7 @@ TagManager:
   - Energy
   - Wall
   - Ceil
+  - WallSticky
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - Ground
   - Ceil
-  - 
+  - WallSticky
   - 
   - 
   - 
