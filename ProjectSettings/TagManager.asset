@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - Ceil
   - WallSticky
+  - Death
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Ground
   - Ceil
   - WallSticky
-  - 
+  - Death
   - 
   - 
   - 

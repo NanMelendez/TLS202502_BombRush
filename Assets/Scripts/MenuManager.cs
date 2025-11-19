@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,9 @@ public class MenuManager : MonoBehaviour
 
     public void Salir()
     {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = true;
+#endif
         Application.Quit();
     }
     

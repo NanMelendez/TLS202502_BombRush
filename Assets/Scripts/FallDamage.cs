@@ -42,7 +42,7 @@ public class FallDamage : MonoBehaviour
     {
         int colLayer = collision.gameObject.layer;
 
-        if (colLayer == 6)
+        if (colLayer == groundLayer)
         {
             isGrounded = true;
         }
@@ -66,7 +66,7 @@ public class FallDamage : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == groundLayer)
             isGrounded = false;
     }
 }

@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     private int velMod;
     private bool hasJumpedSinceGrounded;
     private bool gamePausedOrOver;
+    private bool delayExtraGravity;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
         isSliding = false;
         isFalling = true;
         gamePausedOrOver = false;
+        delayExtraGravity = false;
     }
 
     void Update()
@@ -72,6 +74,15 @@ public class Player : MonoBehaviour
                 gamePausedOrOver = true;
                 gm.Victoria();
             }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ceil"))
+        {
+            delayExtraGravity = true;
+            Invoke(nameof(AfterCeilBump), 1.0f);
         }
     }
 
@@ -140,10 +151,15 @@ public class Player : MonoBehaviour
         if ((rb2d.linearVelocityY < 0.0f || isForcingFall) && !grounded)
         {
             isFalling = true;
-            rb2d.gravityScale = baseGravity + gravFallFactor + (isForcingFall ? 3.5f : 0.0f);
+            rb2d.gravityScale = baseGravity + (delayExtraGravity ? 0.0f : gravFallFactor) + (isForcingFall ? 3.5f : 0.0f);
         }
 
         animator.SetBool("estaCayendo", isFalling);
+    }
+
+    private void AfterCeilBump()
+    {
+        delayExtraGravity = false;
     }
 
     public bool IsSliding()
