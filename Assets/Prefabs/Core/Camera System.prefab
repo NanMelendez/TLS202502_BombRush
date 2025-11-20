@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6423097180123204214}
   - component: {fileID: 6188864622112304294}
   - component: {fileID: 3196001816797403559}
-  - component: {fileID: 3861752245295336456}
+  - component: {fileID: 8325878038363657912}
+  - component: {fileID: 7408615820196292019}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -133,7 +134,7 @@ MonoBehaviour:
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
---- !u!114 &3861752245295336456
+--- !u!114 &8325878038363657912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,21 +143,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1227349896154420806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
-  ApplyAfter: 2
-  ChannelMask: 1
-  Gain: 1
-  Use2DDistance: 0
-  UseCameraSpace: 1
-  SignalCombinationMode: 0
-  ReactionSettings:
-    m_SecondaryNoise: {fileID: 0}
-    AmplitudeGain: 1
-    FrequencyGain: 1
-    Duration: 1
-    m_NoiseOffsets: {x: 0, y: 0, z: 0}
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 5
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &7408615820196292019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227349896154420806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a57bc9d60f8bc4d956bd8796421f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallShake
+  shakeNoise: {fileID: 8325878038363657912}
 --- !u!1 &1343599443308056852
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 1343599443308056852}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6136813, y: 5.489679, z: -10}
+  m_LocalPosition: {x: 5.644954, y: 5.489679, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -202,7 +209,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4943396, g: 0.4943396, b: 0.4943396, a: 0}
+  m_BackGroundColor: {r: 0.9169811, g: 0.8983746, b: 0.8218227, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

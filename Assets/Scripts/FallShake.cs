@@ -3,37 +3,28 @@ using UnityEngine;
 
 public class FallShake : MonoBehaviour
 {
-    public float amplitude;
-    public float frequency;
     [SerializeField]
-    private Rigidbody2D rb2d;
-    [SerializeField]
-    SurfaceCheck groundCheck;
-    private float fallSpeed = 0.0f;
-    private bool hasCrashedOntoFloor = false;
+    private CinemachineBasicMultiChannelPerlin shakeNoise;
+    private float shakeTimer;
+    private float shakeTimerTotal;
+    private float startingIntensity;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void Update()
     {
-        if (collision.gameObject.CompareTag("Ground") && fallSpeed <= -10.0f && !hasCrashedOntoFloor)
+        // Debug.Log(fallSpeed);
+        if (shakeTimer > 0.0f)
         {
-            hasCrashedOntoFloor = true;
+            Debug.Log(shakeTimer);
+            shakeTimer -= Time.deltaTime;
+            shakeNoise.AmplitudeGain = Mathf.Lerp(startingIntensity, 0.0f, shakeTimer / shakeTimerTotal);
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    public void ShakeCamera(float intensity, float time)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-            hasCrashedOntoFloor = false;
-    }
-
-    void LateUpdate()
-    {
-        if (groundCheck.IsColliding())
-            fallSpeed = rb2d.linearVelocityY;
-    }
-
-    private void DisableShake()
-    {
-        
+        shakeNoise.AmplitudeGain = intensity;
+        startingIntensity = intensity;
+        shakeTimerTotal = time;
+        shakeTimer = time;
     }
 }

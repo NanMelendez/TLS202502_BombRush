@@ -19,19 +19,18 @@ public class LevelSelManager : MonoBehaviour
         levelCount = SceneManager.sceneCountInBuildSettings - 3;
         btnTransform = btnLevel.GetComponent<RectTransform>();
 
-        Debug.Log("Conteo de niveles: " + levelCount);
-
         for (int i = 0; i < levelCount; i++)
         {
+            int idx = i + 1;
             GameObject newBtn = Instantiate(btnLevel, btnBase.transform.position + i * new Vector3(btnTransform.rect.width + margin, 0), Quaternion.identity);
             newBtn.transform.SetParent(btnBase.transform, false);
 
             Button btn = newBtn.GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(() => { GoToLevel(i + 1);});
+            btn.onClick.AddListener(() => { GoToLevel(idx);});
 
             TextMeshProUGUI txt = newBtn.GetComponentInChildren<TextMeshProUGUI>();
-            txt.text = (i + 1).ToString();
+            txt.text = idx.ToString();
         }
     }
 

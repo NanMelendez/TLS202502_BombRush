@@ -21421,22 +21421,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera System
       objectReference: {fileID: 0}
-    - target: {fileID: 2764181983218105970, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.3495069
-      objectReference: {fileID: 0}
-    - target: {fileID: 7910504103575764879, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.8218227
-      objectReference: {fileID: 0}
-    - target: {fileID: 7910504103575764879, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.8983746
-      objectReference: {fileID: 0}
-    - target: {fileID: 7910504103575764879, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.9169811
-      objectReference: {fileID: 0}
     - target: {fileID: 8209144984831198020, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.60309
@@ -21487,6 +21471,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 7910504103575764879, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
   m_PrefabInstance: {fileID: 1464700261}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1464700274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7408615820196292019, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
+  m_PrefabInstance: {fileID: 1464700261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a57bc9d60f8bc4d956bd8796421f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallShake
 --- !u!1001 &1562551180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24948,6 +24943,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 296750358}
+    - target: {fileID: 1254412654432142678, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
+      propertyPath: camShake
+      value: 
+      objectReference: {fileID: 1464700274}
     - target: {fileID: 5297353923241379447, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
       propertyPath: gm
       value: 
