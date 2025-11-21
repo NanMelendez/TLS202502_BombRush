@@ -9,11 +9,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private GameObject btnCreditos;
     [SerializeField]
+    private GameObject coverEquipo;
+    [SerializeField]
     private PersistentData gameData;
 
     void Start()
     {
-        btnCreditos.SetActive(false);
+        btnCreditos.SetActive(gameData.areCreditsUnlocked);
+        coverEquipo.SetActive(!gameData.gameIsBooted);
 
         if (!gameData.gameIsBooted)
             Invoke(nameof(GameBootFinished), 3.0f);
@@ -40,6 +43,7 @@ public class MenuManager : MonoBehaviour
     private void GameBootFinished()
     {
         gameData.gameIsBooted = true;
+        coverEquipo.SetActive(false);
     }
 
     private void EnableCreditsAccess()

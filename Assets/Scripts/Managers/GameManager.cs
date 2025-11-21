@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public float tiempo;
     private bool pausa = false;
     private int siguienteNivel;
+    private int totalNiveles;
 
     public float TiempoRestante
     {
@@ -86,7 +87,8 @@ public class GameManager : MonoBehaviour
         interfazVictoria.SetActive(false);
         interfazDerrota.SetActive(false);
 
-        siguienteNivel = SceneManager.GetActiveScene().buildIndex + 1;
+        siguienteNivel = SceneManager.GetActiveScene().buildIndex - 2;
+        totalNiveles = SceneManager.sceneCountInBuildSettings - 3;
     }
 
     void Update()
@@ -148,11 +150,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Selector Niveles");
     }
 
-    public void SiguienteNivel(int n)
+    public void SiguienteNivel()
     {
-        if (siguienteNivel == 3)
-            RegresarSelector();
-
-        SceneManager.LoadScene(siguienteNivel);
+        SceneManager.LoadScene((siguienteNivel == totalNiveles) ? "Creditos" : "Nivel " + siguienteNivel);
     }
 }

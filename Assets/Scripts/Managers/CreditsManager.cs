@@ -15,10 +15,12 @@ public class CreditsManager : MonoBehaviour
     private PersistentData gameData;
 
     public float scrollDuration;
-    private float scrollTimer = 0.0f;
+    private float scrollTimer;
 
     void Start()
     {
+        Time.timeScale = 1.0f;
+        scrollTimer = 0.0f;
         skipCredits.SetActive(gameData.areCreditsUnlocked);
     }
 

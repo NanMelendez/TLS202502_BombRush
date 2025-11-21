@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: f6abd089a6e98f14ab6c8f20e39752e4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1575887233818648144
+    second: Noobtists_Logo_0
+  - first:
+      213: 8002573002319768542
+    second: Noobtists_Logo_1
+  - first:
+      213: 4496503704631178938
+    second: Noobtists_Logo_2
+  - first:
+      213: -3596368644782772896
+    second: Noobtists_Logo_3
+  - first:
+      213: -5881649531024311097
+    second: Noobtists_Logo_4
+  - first:
+      213: 8138727745930000282
+    second: Noobtists_Logo_5
+  - first:
+      213: 7295042009803328140
+    second: Noobtists_Logo_6
+  - first:
+      213: 3458232241848365710
+    second: Noobtists_Logo_7
+  - first:
+      213: 8893754528441217096
+    second: Noobtists_Logo_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Noobtists_Logo_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 286
+        width: 161
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e55d9f61daed510800000000000000
+      internalID: 1575887233818648144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Noobtists_Logo_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 283
+        width: 151
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edba6640fb9de0f60800000000000000
+      internalID: 8002573002319768542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Noobtists_Logo_2
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 286
+        width: 151
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6f4cdbb4ac66e30800000000000000
+      internalID: 4496503704631178938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Noobtists_Logo_3
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 287
+        width: 140
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06dae5e95c1271ec0800000000000000
+      internalID: -3596368644782772896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Noobtists_Logo_4
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 287
+        width: 140
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ccf3f1f9ee206ea0800000000000000
+      internalID: -5881649531024311097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Noobtists_Logo_5
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 287
+        width: 55
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97f5cb93c192f070800000000000000
+      internalID: 8138727745930000282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Noobtists_Logo_6
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 287
+        width: 140
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a01ef9e023d3560800000000000000
+      internalID: 7295042009803328140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Noobtists_Logo_7
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 287
+        width: 140
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82bc26c6eb1eff20800000000000000
+      internalID: 3458232241848365710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Noobtists_Logo_8
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 287
+        width: 140
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 840b24b5f96fc6b70800000000000000
+      internalID: 8893754528441217096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Noobtists_Logo_0: 1575887233818648144
+      Noobtists_Logo_1: 8002573002319768542
+      Noobtists_Logo_2: 4496503704631178938
+      Noobtists_Logo_3: -3596368644782772896
+      Noobtists_Logo_4: -5881649531024311097
+      Noobtists_Logo_5: 8138727745930000282
+      Noobtists_Logo_6: 7295042009803328140
+      Noobtists_Logo_7: 3458232241848365710
+      Noobtists_Logo_8: 8893754528441217096
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

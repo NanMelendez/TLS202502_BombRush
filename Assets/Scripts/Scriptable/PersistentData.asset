@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c32b08e185d4845a0e1d60ccfdc259, type: 3}
   m_Name: PersistentData
   m_EditorClassIdentifier: Assembly-CSharp::PersistentData
-  gameIsBooted: 0
+  gameIsBooted: 1
   areCreditsUnlocked: 0
