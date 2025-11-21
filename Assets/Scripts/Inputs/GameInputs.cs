@@ -61,7 +61,7 @@ public class GameInputs : MonoBehaviour
     private void ChangePauseStateCallback(InputAction.CallbackContext context)
     {
         if (context.interaction is PressInteraction)
-            gm.EstadoPausa = !gm.EstadoPausa;
+            gm.Pausa = !gm.Pausa;
     }
 
     public bool IsMovingHorizontally()

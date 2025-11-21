@@ -1737,6 +1737,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6410953161612063101, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: jugador
+      value: 
+      objectReference: {fileID: 597632840}
+    - target: {fileID: 6410953161612063101, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: interfazJuego
       value: 
       objectReference: {fileID: 974367025}
@@ -2777,6 +2781,11 @@ Tilemap:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2121540740191626500, guid: 00caaa2716b8ab94e935c6c18ad11f77, type: 3}
   m_PrefabInstance: {fileID: 211593798126728217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &597632840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5365730911601309850, guid: 9eeabfa4f3d9123458cf5c6189de4ee4, type: 3}
+  m_PrefabInstance: {fileID: 2069157388}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &687689724 stripped
 Transform:
@@ -22451,7 +22460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2764181983218105970, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0621324
+      value: 4.920379
       objectReference: {fileID: 0}
     - target: {fileID: 8209144984831198020, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25917,17 +25926,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 296750358}
     - target: {fileID: 4968203398448524313, guid: 00caaa2716b8ab94e935c6c18ad11f77, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968203398448524313, guid: 00caaa2716b8ab94e935c6c18ad11f77, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 296750358}
-    - target: {fileID: 4968203398448524313, guid: 00caaa2716b8ab94e935c6c18ad11f77, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 5143442742568059510, guid: 00caaa2716b8ab94e935c6c18ad11f77, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -26189,6 +26190,6 @@ SceneRoots:
   - {fileID: 208270335}
   - {fileID: 761699417}
   - {fileID: 296750356}
+  - {fileID: 1462996387}
   - {fileID: 211593798126728217}
   - {fileID: 4395467793764662668}
-  - {fileID: 1462996387}

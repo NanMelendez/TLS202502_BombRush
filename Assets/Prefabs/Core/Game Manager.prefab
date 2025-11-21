@@ -79,4 +79,6 @@ MonoBehaviour:
   interfazPausa: {fileID: 0}
   interfazVictoria: {fileID: 0}
   interfazDerrota: {fileID: 0}
-  tiempo: 30
+  jugador: {fileID: 0}
+  explosion: {fileID: 3226779289144149118, guid: 54a84020d52dc1b4786871106fc10ced, type: 3}
+  tiempo: 15

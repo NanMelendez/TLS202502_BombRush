@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
     private bool isSliding;
     private int velMod;
     private bool hasJumpedSinceGrounded;
-    private bool gamePausedOrOver;
     private bool delayExtraGravity;
 
     void Start()
@@ -31,13 +30,12 @@ public class Player : MonoBehaviour
         slime.SetActive(false);
         isSliding = false;
         isFalling = true;
-        gamePausedOrOver = false;
         delayExtraGravity = false;
     }
 
     void Update()
     {
-        if (!gamePausedOrOver)
+        if (!gm.Pausa || !gm.GameOver || !gm.Ganaste)
         {
             HorizontalMovement();
             VerticalMovement();
@@ -68,7 +66,6 @@ public class Player : MonoBehaviour
             if (collision.enabled)
             {
                 collision.enabled = false;
-                gamePausedOrOver = true;
                 gm.Victoria();
             }
         }
@@ -80,6 +77,10 @@ public class Player : MonoBehaviour
         {
             delayExtraGravity = true;
             Invoke(nameof(AfterCeilBump), 1.0f);
+        }
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            gm.GameOver = true;
         }
     }
 

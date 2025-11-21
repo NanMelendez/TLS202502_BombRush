@@ -59,7 +59,8 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        CalculateDistance();
+        if (transformJugador != null)
+            CalculateDistance();
     }
 
     private void CalculateDistance()

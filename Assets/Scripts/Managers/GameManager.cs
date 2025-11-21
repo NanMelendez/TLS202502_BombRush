@@ -7,8 +7,12 @@ public class GameManager : MonoBehaviour
     public GameObject interfazPausa;
     public GameObject interfazVictoria;
     public GameObject interfazDerrota;
+    public GameObject jugador;
+    public GameObject explosion;
     public float tiempo;
+    private bool gameover = false;
     private bool pausa = false;
+    private bool victoria = false;
     private int siguienteNivel;
     private int totalNiveles;
 
@@ -60,7 +64,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool EstadoPausa
+    public bool Pausa
     {
         get
         {
@@ -70,9 +74,29 @@ public class GameManager : MonoBehaviour
         {
             pausa = value;
             if (pausa)
-                Pausa();
+                Pausar();
             else
                 Resumir();
+        }
+    }
+
+    public bool GameOver
+    {
+        get
+        {
+            return gameover;
+        }
+        set
+        {
+            gameover = value;
+        }
+    }
+
+    public bool Ganaste
+    {
+        get
+        {
+            return victoria;
         }
     }
 
@@ -87,13 +111,35 @@ public class GameManager : MonoBehaviour
         interfazVictoria.SetActive(false);
         interfazDerrota.SetActive(false);
 
-        siguienteNivel = SceneManager.GetActiveScene().buildIndex - 2;
+        siguienteNivel = SceneManager.GetActiveScene().buildIndex - 1;
         totalNiveles = SceneManager.sceneCountInBuildSettings - 3;
     }
 
     void Update()
     {
         CuentaRegresiva();
+
+        if (TiempoRestante <= 0.0f && jugador != null && !gameover)
+        {
+            gameover = true;
+            Instantiate(explosion, jugador.transform.position, Quaternion.identity);
+            Destroy(jugador);
+            Invoke(nameof(Derrota), 1.75f);
+        }
+
+        if (gameover && jugador != null)
+            MatarJugador();
+
+        if (!gameover && TiempoRestante <= 0.0f)
+            gameover = true;
+    }
+
+    private void MatarJugador()
+    {
+        gameover = true;
+        Instantiate(explosion, jugador.transform.position, Quaternion.identity);
+        Destroy(jugador);
+        Invoke(nameof(Derrota), 1.75f);
     }
 
     private void CuentaRegresiva()
@@ -115,7 +161,7 @@ public class GameManager : MonoBehaviour
         EnergiaRestante = Mathf.Min(EnergiaRestante + e, EnergiaLimite);
     }
 
-    public void Pausa()
+    public void Pausar()
     {
         interfazPausa.SetActive(true);
     }
@@ -128,13 +174,15 @@ public class GameManager : MonoBehaviour
 
     public void Victoria()
     {
+        victoria = true;
         Time.timeScale = 0.0f;
         interfazJuego.gameObject.SetActive(false);
         interfazVictoria.SetActive(true);
     }
 
-    public void Derrota()
+    private void Derrota()
     {
+        gameover = true;
         Time.timeScale = 0.0f;
         interfazJuego.gameObject.SetActive(false);
         interfazDerrota.SetActive(true);
@@ -152,6 +200,6 @@ public class GameManager : MonoBehaviour
 
     public void SiguienteNivel()
     {
-        SceneManager.LoadScene((siguienteNivel == totalNiveles) ? "Creditos" : "Nivel " + siguienteNivel);
+        SceneManager.LoadScene((siguienteNivel > totalNiveles) ? "Creditos" : "Nivel " + siguienteNivel);
     }
 }

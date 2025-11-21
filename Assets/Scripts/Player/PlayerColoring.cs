@@ -32,7 +32,8 @@ public class PlayerColoring : MonoBehaviour
             return;
         }
 
-        sprite.color = IsForcedFalling() ? forcedFallColor : defaultColor;
+        if (player != null)
+            sprite.color = IsForcedFalling() ? forcedFallColor : defaultColor;
 
         if (gm.TiempoRestante < gm.TiempoLimite / 2.0f)
         {

@@ -485,8 +485,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Integrantes\nNander Melendez - Programador\nManuel Garcia - Artista\nAlexis
-    Joshimar - ???\n\nCurso\nTaller de Prototipado y Dise\xF1o de Videojuegos\n\nDocente\nRenzo
+  m_text: "Integrantes\nNander Melendez - Programador\nArturo Garcia - Artista\nAlexis
+    Gutierrez - SFX\n\nCurso\nTaller de Prototipado y Dise\xF1o de Videojuegos\n\nDocente\nRenzo
     Guido Evans\n\nCiclo\n2025-2\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

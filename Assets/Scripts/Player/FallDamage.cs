@@ -64,8 +64,9 @@ public class FallDamage : MonoBehaviour
             // Debug.Log(string.Format("Perdiste {0:0.00}%", totalDamage));
         }
 
-        if (isGrounded || player.IsSliding())
-            fallTime = 0;
+        if (player != null)
+            if (isGrounded || player.IsSliding())
+                fallTime = 0;
     }
 
     void OnCollisionExit2D(Collision2D collision)
