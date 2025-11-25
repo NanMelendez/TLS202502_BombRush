@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject interfazDerrota;
     public GameObject jugador;
     public GameObject explosion;
+    public CamShake camShake;
     public float tiempo;
     private bool gameover = false;
     private bool pausa = false;
@@ -124,6 +125,7 @@ public class GameManager : MonoBehaviour
             gameover = true;
             Instantiate(explosion, jugador.transform.position, Quaternion.identity);
             Destroy(jugador);
+            camShake.ShakeCamera(2.5f, 7.5f);
             Invoke(nameof(Derrota), 1.75f);
         }
 
@@ -139,6 +141,7 @@ public class GameManager : MonoBehaviour
         gameover = true;
         Instantiate(explosion, jugador.transform.position, Quaternion.identity);
         Destroy(jugador);
+        camShake.ShakeCamera(2.5f, 7.5f);
         Invoke(nameof(Derrota), 1.75f);
     }
 

@@ -1,4 +1,3 @@
-using Unity.Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -9,30 +8,26 @@ public class FallDamage : MonoBehaviour
     [SerializeField]
     private float fallSpeedThreshold;
     [SerializeField]
-    private LayerMask groundLayer;
-    [SerializeField]
-    private float damageMultiplier;
+    private CamShake camShake;
     [SerializeField]
     private GameManager gm;
     [SerializeField]
     private Player player;
-    [SerializeField]
     private Rigidbody2D rb2d;
-    [SerializeField]
-    private FallShake camShake;
-    private float fallTime = 0;
-    private float fallSpeed = 0;
-    private bool isGrounded;
+    private float fallSpeed;
+    private float fallTimer;
 
-    void Awake()
+    void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = player.rb2d;
+        fallTimer = 0.0f;
+        fallSpeed = 0.0f;
     }
 
     void Update()
     {
-        if (rb2d.linearVelocityY < 0.0f && !isGrounded)
-            fallTime += Time.deltaTime;
+        if (fallSpeed < 0.0f && !player.IsGrounded())
+            fallTimer += Time.deltaTime;
     }
 
     void LateUpdate()
@@ -42,36 +37,14 @@ public class FallDamage : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        int colLayer = collision.gameObject.layer;
-
-        if (colLayer == groundLayer)
+        if (player.IsGrounded())
         {
-            isGrounded = true;
-            Debug.Log(fallSpeed);
+            Debug.Log(string.Format("Impacto: {0:0.00}", fallSpeed) + string.Format(" Tiempo de caida: {0:0.00} s" , fallTimer));
+            camShake.ShakeCamera(Mathf.Abs(fallSpeed) * 0.075f, fallTimer * 2.0f);
+
+            
+
+            fallTimer = 0.0f;
         }
-
-        if (isGrounded && (fallTime > fallTimeThreshold || fallSpeed < fallSpeedThreshold) && !player.IsSliding())
-        {
-            camShake.ShakeCamera(5.0f, 1.5f);
-            // Debug.Log(string.Format("Tiempo caída: {0:00}, Mínimo: {0:00}", fallTime, fallTimeThreshold));
-            // Debug.Log(string.Format("Velocidad caída: {0:00}, Mínimo: {0:00}", fallSpeed, fallSpeedThreshold));
-            // float calc1 = Mathf.Max(fallTime - fallTimeThreshold, 0.0f);
-            // float calc2 = -0.5f * Mathf.Max(fallSpeed - fallSpeedThreshold, 0.0f);
-            // Debug.Log("Fall multiplier: " + damageMultiplier);
-            // Debug.Log("Time - threshold: " + calc1);
-            // Debug.Log("-0.5 * (velY - threshold): " + calc2);
-            // float totalDamage = damageMultiplier * (calc1 + calc2);
-            // Debug.Log(string.Format("Perdiste {0:0.00}%", totalDamage));
-        }
-
-        if (player != null)
-            if (isGrounded || player.IsSliding())
-                fallTime = 0;
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == groundLayer)
-            isGrounded = false;
     }
 }

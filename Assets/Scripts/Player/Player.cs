@@ -164,4 +164,9 @@ public class Player : MonoBehaviour
     {
         return isSliding;
     }
+
+    public bool HasJumpedSinceGrounded()
+    {
+        return hasJumpedSinceGrounded;
+    }
 }
