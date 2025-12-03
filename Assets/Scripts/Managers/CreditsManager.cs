@@ -11,17 +11,21 @@ public class CreditsManager : MonoBehaviour
     private Transform last;
     [SerializeField]
     private GameObject skipCredits;
-    [SerializeField]
-    private PersistentData gameData;
 
     public float scrollDuration;
     private float scrollTimer;
 
     void Start()
     {
+        skipCredits.SetActive(false);
+
         Time.timeScale = 1.0f;
         scrollTimer = 0.0f;
-        skipCredits.SetActive(gameData.areCreditsUnlocked);
+
+        if (PlayerPrefs.GetInt("CreditosDesbloqueados") != 1)
+            PlayerPrefs.SetInt("CreditosDesbloqueados", 1);
+        else
+            skipCredits.SetActive(true);
     }
 
     void Update()
@@ -32,11 +36,8 @@ public class CreditsManager : MonoBehaviour
             scrollTimer += Time.deltaTime;
         }
 
-        if (!gameData.areCreditsUnlocked && scrollTimer >= scrollDuration)
-        {
-            gameData.areCreditsUnlocked = true;
+        if (scrollTimer >= scrollDuration)
             SkipToMenu();
-        }
     }
 
     public void SkipToMenu()

@@ -4,8 +4,6 @@ using UnityEngine;
 public class FallDamage : MonoBehaviour
 {
     [SerializeField]
-    private float fallTimeThreshold;
-    [SerializeField]
     private float fallSpeedThreshold;
     [SerializeField]
     private CamShake camShake;
@@ -37,12 +35,14 @@ public class FallDamage : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (player.IsGrounded())
-        {
-            Debug.Log(string.Format("Impacto: {0:0.00}", fallSpeed) + string.Format(" Tiempo de caida: {0:0.00} s" , fallTimer));
-            camShake.ShakeCamera(Mathf.Abs(fallSpeed) * 0.075f, fallTimer * 2.0f);
+        Debug.Log(string.Format("Impacto: {0:0.00}", fallSpeed) + string.Format(" Tiempo de caida: {0:0.00} s" , fallTimer));
 
-            
+        if (player.IsGrounded() && fallSpeed < fallSpeedThreshold)
+        {
+            float absFallSpeed = Mathf.Abs(fallSpeed);
+            camShake.ShakeCamera(absFallSpeed * 0.075f, fallTimer * 0.85f);
+
+            gm.EnergiaRestante -= absFallSpeed * 0.75f;
 
             fallTimer = 0.0f;
         }

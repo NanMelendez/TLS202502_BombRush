@@ -350,16 +350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4445fb7c81dc5489ab9f06633a8081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallDamage
-  fallTimeThreshold: 2
-  fallSpeedThreshold: -10
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  damageMultiplier: 2.25
+  fallSpeedThreshold: -25
+  camShake: {fileID: 0}
   gm: {fileID: 0}
   player: {fileID: 784757805107093282}
-  rb2d: {fileID: 6911206868144316122}
-  camShake: {fileID: 0}
 --- !u!114 &5297353923241379447
 MonoBehaviour:
   m_ObjectHideFlags: 0

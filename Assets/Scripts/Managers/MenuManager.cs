@@ -10,23 +10,25 @@ public class MenuManager : MonoBehaviour
     private GameObject btnCreditos;
     [SerializeField]
     private GameObject coverEquipo;
-    [SerializeField]
-    private PersistentData gameData;
 
     void Start()
     {
-        btnCreditos.SetActive(gameData.areCreditsUnlocked);
-        coverEquipo.SetActive(!gameData.gameIsBooted);
+        Debug.Log("¿Créditos desbloqueados?" + (PlayerPrefs.GetInt("CreditosDesbloqueados") == 1));
+        Debug.Log("¿Juego iniciado?" + (PlayerPrefs.GetInt("JuegoIniciado") == 0));
 
-        if (!gameData.gameIsBooted)
+        btnCreditos.SetActive(false);
+        coverEquipo.SetActive(PlayerPrefs.GetInt("JuegoIniciado") == 0);
+        
+        if (PlayerPrefs.GetInt("JuegoIniciado") == 0)
             Invoke(nameof(GameBootFinished), 3.0f);
         
-        if (gameData.areCreditsUnlocked)
+        if (PlayerPrefs.GetInt("CreditosDesbloqueados") == 1)
             EnableCreditsAccess();
     }
 
     public void Salir()
     {
+        PlayerPrefs.DeleteAll();
         Application.Quit();
     }
     
@@ -42,7 +44,7 @@ public class MenuManager : MonoBehaviour
 
     private void GameBootFinished()
     {
-        gameData.gameIsBooted = true;
+        PlayerPrefs.SetInt("JuegoIniciado", 1);
         coverEquipo.SetActive(false);
     }
 

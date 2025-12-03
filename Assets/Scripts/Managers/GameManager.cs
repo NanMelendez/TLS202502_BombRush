@@ -120,16 +120,16 @@ public class GameManager : MonoBehaviour
     {
         CuentaRegresiva();
 
-        if (TiempoRestante <= 0.0f && jugador != null && !gameover)
-        {
-            gameover = true;
-            Instantiate(explosion, jugador.transform.position, Quaternion.identity);
-            Destroy(jugador);
-            camShake.ShakeCamera(2.5f, 7.5f);
-            Invoke(nameof(Derrota), 1.75f);
-        }
+        // if (TiempoRestante <= 0.0f && jugador != null && !gameover)
+        // {
+        //     gameover = true;
+        //     Instantiate(explosion, jugador.transform.position, Quaternion.identity);
+        //     Destroy(jugador);
+        //     camShake.ShakeCamera(2.5f, 7.5f);
+        //     Invoke(nameof(Derrota), 1.75f);
+        // }
 
-        if (gameover && jugador != null)
+        if ((gameover || EnergiaRestante <= 0.0f) && jugador != null)
             MatarJugador();
 
         if (!gameover && TiempoRestante <= 0.0f)
@@ -181,6 +181,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         interfazJuego.gameObject.SetActive(false);
         interfazVictoria.SetActive(true);
+
+        PlayerPrefs.SetInt("NivelesCompletados", PlayerPrefs.GetInt("NivelesCompletados") + 1);
     }
 
     private void Derrota()
