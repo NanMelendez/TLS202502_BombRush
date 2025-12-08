@@ -29,6 +29,7 @@ public class MenuManager : MonoBehaviour
     public void Salir()
     {
         PlayerPrefs.DeleteAll();
+        EditorApplication.isPlaying = false;
         Application.Quit();
     }
     
