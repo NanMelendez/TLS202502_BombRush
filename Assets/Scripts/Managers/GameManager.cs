@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject jugador;
     public GameObject explosion;
     public CamShake camShake;
+    public AudioSource music;
     public float tiempo;
     private bool gameover = false;
     private bool pausa = false;
@@ -166,12 +167,15 @@ public class GameManager : MonoBehaviour
 
     public void Pausar()
     {
+        Time.timeScale = 0.0f;
+        music.Pause();
         interfazPausa.SetActive(true);
     }
 
     public void Resumir()
     {
         interfazPausa.SetActive(false);
+        music.UnPause();
         Time.timeScale = 1.0f;
     }
 

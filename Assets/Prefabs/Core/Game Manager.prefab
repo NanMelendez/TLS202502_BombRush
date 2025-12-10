@@ -84,6 +84,7 @@ MonoBehaviour:
   jugador: {fileID: 0}
   explosion: {fileID: 3226779289144149118, guid: 54a84020d52dc1b4786871106fc10ced, type: 3}
   camShake: {fileID: 0}
+  music: {fileID: 7017394439109640269}
   tiempo: 15
 --- !u!82 &7017394439109640269
 AudioSource:

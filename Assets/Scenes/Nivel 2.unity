@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1874369086}
+    - target: {fileID: 4622891511523697091, guid: 00caaa2716b8ab94e935c6c18ad11f77, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4949296016778090697, guid: 00caaa2716b8ab94e935c6c18ad11f77, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -44421,6 +44425,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1222294891}
     - target: {fileID: 6410953161612063101, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
+      propertyPath: camShake
+      value: 
+      objectReference: {fileID: 1874369087}
+    - target: {fileID: 6410953161612063101, guid: 02baedc3c4382f94a9251d04d79dad88, type: 3}
       propertyPath: interfazJuego
       value: 
       objectReference: {fileID: 88681762}
@@ -44470,7 +44478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2764181983218105970, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7749176
+      value: -2.034213
       objectReference: {fileID: 0}
     - target: {fileID: 2764181983218105970, guid: ffda9d5a648d87947b8ab29ef4f3ba54, type: 3}
       propertyPath: m_LocalPosition.y
