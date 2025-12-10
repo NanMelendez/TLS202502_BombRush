@@ -189,7 +189,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 688.37, y: 387.21}
+  m_SizeDelta: {x: 753.99, y: 490.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311888361
 MonoBehaviour:
@@ -488,8 +488,8 @@ MonoBehaviour:
     Gutierrez - \xBFSFX?\nAlessandro Pereira - M\xFAsica\n\nCurso\nTaller de Prototipado
     y Dise\xF1o de Videojuegos\n\nDocente\nRenzo Guido Evans\n\nCiclo\n2025-2\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34e9d7c30e896b74bb4bd62de0ea822c, type: 2}
+  m_sharedMaterial: {fileID: 8361146916505146465, guid: 34e9d7c30e896b74bb4bd62de0ea822c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -624,8 +624,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xA1GRACIAS POR JUGAR!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34e9d7c30e896b74bb4bd62de0ea822c, type: 2}
+  m_sharedMaterial: {fileID: 8361146916505146465, guid: 34e9d7c30e896b74bb4bd62de0ea822c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
