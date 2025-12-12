@@ -19,11 +19,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameManager gm;
     public GameInputs gameInputs;
+    [SerializeField]
+    private AudioSource sfxWalking;
+    [SerializeField]
+    private AudioSource sfxJump;
+    [SerializeField]
+    private AudioSource sfxExplosion;
     private bool isFalling;
     private bool isSliding;
     private int velMod;
     private bool hasJumpedSinceGrounded;
     private bool delayExtraGravity;
+    private bool gameover;
 
     void Start()
     {
@@ -31,6 +38,7 @@ public class Player : MonoBehaviour
         isSliding = false;
         isFalling = true;
         delayExtraGravity = false;
+        gameover = false;
     }
 
     void Update()
@@ -43,6 +51,11 @@ public class Player : MonoBehaviour
             if (gm.TiempoRestante == 0.0f)
             {
                 animator.SetTrigger("tiempoTerminado");
+                if (!gameover)
+                {
+                    sfxExplosion.Play();
+                    gameover = true;
+                }
             }
         }
     }
@@ -111,6 +124,11 @@ public class Player : MonoBehaviour
                 sprintFactor = 1.5f;
                 velMod = 2;
             }
+
+            if (IsGrounded() && !sfxWalking.isPlaying)
+            {
+                sfxWalking.Play();
+            }
         }
 
         if (IsHittingWall() && !IsGrounded() && velMod > 0)
@@ -144,6 +162,7 @@ public class Player : MonoBehaviour
             rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             animator.SetTrigger("estaSaltando");
             hasJumpedSinceGrounded = true;
+            sfxJump.Play();
         }
 
         if ((rb2d.linearVelocityY < 0.0f || isForcingFall) && !grounded)

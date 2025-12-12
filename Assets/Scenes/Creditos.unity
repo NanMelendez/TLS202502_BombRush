@@ -484,8 +484,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Integrantes\nNander Melendez - Programaci\xF3n\nArturo Garcia - Arte\nAlexis
-    Gutierrez - \xBFSFX?\nAlessandro Pereira - M\xFAsica\n\nCurso\nTaller de Prototipado
+  m_text: "Integrantes\nNander Melendez - Programaci\xF3n\nManuel Garcia - Arte\nAlexis
+    Gutierrez - SFX\nAlessandro Espinoza - M\xFAsica\n\nCurso\nTaller de Prototipado
     y Dise\xF1o de Videojuegos\n\nDocente\nRenzo Guido Evans\n\nCiclo\n2025-2\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 34e9d7c30e896b74bb4bd62de0ea822c, type: 2}
@@ -524,6 +524,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -660,6 +661,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
