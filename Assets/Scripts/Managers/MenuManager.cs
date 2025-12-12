@@ -1,6 +1,9 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+#if UNITY_EDITOR
+ using UnityEditor;
+#endif
 
 public class MenuManager : MonoBehaviour
 {
@@ -29,7 +32,9 @@ public class MenuManager : MonoBehaviour
     public void Salir()
     {
         PlayerPrefs.DeleteAll();
+#if UNITY_EDITOR
         EditorApplication.isPlaying = false;
+#endif
         Application.Quit();
     }
     
