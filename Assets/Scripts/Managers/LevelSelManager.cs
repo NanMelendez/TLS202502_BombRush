@@ -21,7 +21,7 @@ public class LevelSelManager : MonoBehaviour
 
         for (int i = 0; i < levelCount; i++)
         {
-            int idx = i + 1;
+            int idx = i;
             GameObject newBtn = Instantiate(btnLevel, btnBase.transform.position + i * new Vector3(btnTransform.rect.width + margin, 0), Quaternion.identity);
             newBtn.transform.SetParent(btnBase.transform, false);
 
@@ -30,7 +30,7 @@ public class LevelSelManager : MonoBehaviour
             btn.onClick.AddListener(() => { GoToLevel(idx);});
 
             TextMeshProUGUI txt = newBtn.GetComponentInChildren<TextMeshProUGUI>();
-            txt.text = idx.ToString();
+            txt.text = (idx + 1).ToString();
         }
     }
 

@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         interfazVictoria.SetActive(false);
         interfazDerrota.SetActive(false);
 
-        siguienteNivel = SceneManager.GetActiveScene().buildIndex - 1;
+        siguienteNivel = SceneManager.GetActiveScene().buildIndex - 2;
         totalNiveles = SceneManager.sceneCountInBuildSettings - 3;
     }
 
@@ -209,6 +209,6 @@ public class GameManager : MonoBehaviour
 
     public void SiguienteNivel()
     {
-        SceneManager.LoadScene((siguienteNivel > totalNiveles) ? "Creditos" : "Nivel " + siguienteNivel);
+        SceneManager.LoadScene((siguienteNivel >= totalNiveles) ? "Creditos" : "Nivel " + siguienteNivel);
     }
 }
